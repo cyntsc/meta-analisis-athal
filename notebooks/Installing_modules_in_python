@@ -1,0 +1,61 @@
+INSTALAR CON PIP3 EN EL AMBIENTE VIRTUAL
+
+#Instala pip3 si no lo tienes
+#Una vez instalado, corre lo siguiente para activar el ambiente local de Python.
+$ . ~/.bash_profile
+
+#Confirmalo corriendo lo siguiente:
+$ pip3 --version
+
+#Actualizar pip3
+$  python3 -m pip install --upgrade pip
+
+#Instalar módulos personalizados dentro del ambiente virtual
+$ source tu_entorno_virtual/bin/activate
+
+#Quizá quieres primero checar si no esta ya instalado
+$ pip show modulo_nombre
+$ pip show textwrap3 scipy tabulate matplotlib adjustText
+
+#Usa pip3 para instalar un módulo:
+$ pip3 install <module_a_instalar>
+
+#Ejemplo: 
+$ pip3 install bioinfokit
+
+# Desinstalar
+$ pip3 uninstall "bioinfokit"
+
+#############################################################################################
+
+INSTALAR CON APT-GET
+
+$ sudo apt-get install python-scipy ## for Python2
+$ sudo apt-get install python3-scipy ## for Python3
+
+#############################################################################################
+
+INSTALAR CON CONDA
+
+$ conda install -c bioconda bioinfokit
+$ conda uninstall pandas   (cuidado con las dependencias cuando instalo con conda)
+$ sudo apt-get remove python3-scipy ## for Python3
+$ conda remove --force  Forces removal of a package without removing packages
+                        that depend on it. Using this option will usually
+                        leave your environment in a broken and inconsistent
+                        state
+                      
+#############################################################################################
+
+CHECAR SI UN MODULO ESTA INSTALADO
+
+#Checar modulo instalado con pip/pip3
+$ pip3 show bioinfokit
+
+#Puedes checar todos los modulos instalados con pip a la ves:
+$ pip3 list
+
+#Checar instalaciones hechas con conda
+$ conda list
+
+
