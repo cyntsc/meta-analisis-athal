@@ -1,3 +1,32 @@
+
+# Archivos temporales utilizados en el proyecto
+# in root dir
+athal1_htseq-counts/
+athal2_htseq-counts_xxx/
+athal3_htseq-counts/
+athal_UofT/
+trash/
+plots/
+wgcna/
+Defense_genes_db_preparation.ipynb
+
+# Archivos del proyecto zeamay
+zaemay_counts/
+Xtrome_Isoforms.ipynb
+Xtrome-N50Metrics.ipynb
+ZeaMay24-Salmonv14.ipynb
+
+# inside dir(s)
+results-data/*.csv
+results-data/*.pdf
+results-data/statistics/SRR*
+
+# Meta-datos demasiado grandes que pueden ser bajados de otros repos
+meta-data/Araport11_GFF3.gff    ## 2016-06
+meta-data/Araport11_GFF3_genes_transposons.201606.gtf
+meta-data/Athaliana_447_TAIR10.fa
+meta-data/trash/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
