@@ -30,7 +30,7 @@ Create a file with ID-Genes and lenghts from a GTF file <br>
 For those concerned with converting raw counts from an expression array to TMP counts for any purpose. These scripts are an adaptation from the https://www.reneshbedre.com/blog/expression_units.html who uses https://github.com/reneshbedre/bioinfokit library. 
 Note. Gene lengths are based on coding-gene features (CDS), if you wish a more complex approach like average exons or some-like, I encourage to do the necessary changes. 
 
-**Transform_rawcounts_to_TPM** 
+**3_Transform_rawcounts_to_TPM** 
 Take a expression matrix with raw counts and convert into TPM normalization.
 Note. Need a table with the gene IDs and its lengths, if you do not have it please try with **Gene_length_extraction_from_GTF** first.
  
