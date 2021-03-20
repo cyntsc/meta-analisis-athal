@@ -25,6 +25,7 @@ results-data/*.pdf
 results-data/statistics/SRR*
 
 # Meta-datos demasiado grandes que pueden ser bajados de otros repos
+meta-data/statistics/tmp/
 meta-data/Araport11_GFF3.gff    ## 2016-06
 meta-data/Araport11_GFF3_genes_transposons.201606.gtf
 meta-data/Athaliana_447_TAIR10.fa
