@@ -16,6 +16,14 @@ Athal_Traits2.tsv
 Athal_Traits_Feb2021.tsv
 athal_GO_terms.txt
 
+**WGCNA Coexpression Ntw(s) were built with the help of online public resources. Here I share some of them:**<br>
+Please be aware you need to adjust code to your own needs <br>
+https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/Rpackages/WGCNA/ <br>
+http://pklab.med.harvard.edu/scw2014/WGCNA.html <br>
+https://wikis.utexas.edu/display/bioiteam/Clustering+using+WGCNA <br>
+https://www.polarmicrobes.org/weighted-gene-correlation-network-analysis-wgcna-applied-to-microbial-communities/ <br>
+
+
 
 
 
