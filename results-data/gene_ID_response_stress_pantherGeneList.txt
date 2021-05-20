@@ -1,5 +1,0 @@
-ARATH|TAIR=locus=1006230139|UniProtKB=F4IHC3	AT2G05635	DNA repair DEAD helicase RAD3/XP-D subfamily protein;At2g05635;ortholog	FANCONI ANEMIA GROUP J PROTEIN (PTHR11472:SF47)	DNA helicase(PC00011)	Arabidopsis thaliana
-ARATH|TAIR=locus=2081730|UniProtKB=Q9LZJ7	AT3G62680	Proline-rich protein 3;PRP3;ortholog	PROLINE-RICH PROTEIN 1-RELATED (PTHR33470:SF25)		Arabidopsis thaliana
-ARATH|TAIR=locus=2010207|UniProtKB=F4I1P7	AT1G49250	DNA ligase;At1g49250;ortholog	DNA LIGASE 1 (PTHR45674:SF4)	DNA ligase(PC00012)	Arabidopsis thaliana
-ARATH|Gene_OrderedLocusName=At5g59270|UniProtKB=Q9FIF0	AT5G59270	Putative L-type lectin-domain containing receptor kinase II.2;LECRK22;ortholog	L-TYPE LECTIN-DOMAIN CONTAINING RECEPTOR KINASE II.1-RELATED (PTHR27007:SF253)		Arabidopsis thaliana
-ARATH|EnsemblGenome=AT1G07460|UniProtKB=Q9LNW6	AT1G07460	Concanavalin A-like lectin family protein;At1g07460;ortholog	CONCANAVALIN A-LIKE LECTIN FAMILY PROTEIN-RELATED (PTHR27007:SF75)		Arabidopsis thaliana
