@@ -1,0 +1,60 @@
+SRR3383696.fqLog.final.out:                        Uniquely mapped reads % |	98.20%
+SRR3383697.fqLog.final.out:                        Uniquely mapped reads % |	98.14%
+SRR3383779_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	93.55%
+SRR3383780_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	95.20%
+SRR364389_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	87.17%
+SRR364390_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	87.29%
+SRR364398_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	80.25%
+SRR364399_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	80.25%
+SRR6283147_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	32.35%
+SRR6283148_trimmed.fqLog.final.out:                        Uniquely mapped reads % |	29.50%
+SRR3383696.fqLog.final.out:                          Average mapped length |	92.61
+SRR3383697.fqLog.final.out:                          Average mapped length |	99.52
+SRR3383779_trimmed.fqLog.final.out:                          Average mapped length |	90.83
+SRR3383780_trimmed.fqLog.final.out:                          Average mapped length |	90.77
+SRR364389_trimmed.fqLog.final.out:                          Average mapped length |	93.10
+SRR364390_trimmed.fqLog.final.out:                          Average mapped length |	93.40
+SRR364398_trimmed.fqLog.final.out:                          Average mapped length |	93.03
+SRR364399_trimmed.fqLog.final.out:                          Average mapped length |	93.75
+SRR6283147_trimmed.fqLog.final.out:                          Average mapped length |	117.57
+SRR6283148_trimmed.fqLog.final.out:                          Average mapped length |	117.80
+SRR3383696.fqLog.final.out:                       Number of splices: Total |	4122662
+SRR3383697.fqLog.final.out:                       Number of splices: Total |	5506983
+SRR3383779_trimmed.fqLog.final.out:                       Number of splices: Total |	2898246
+SRR3383780_trimmed.fqLog.final.out:                       Number of splices: Total |	3845280
+SRR364389_trimmed.fqLog.final.out:                       Number of splices: Total |	3096768
+SRR364390_trimmed.fqLog.final.out:                       Number of splices: Total |	3061432
+SRR364398_trimmed.fqLog.final.out:                       Number of splices: Total |	2669330
+SRR364399_trimmed.fqLog.final.out:                       Number of splices: Total |	2699085
+SRR6283147_trimmed.fqLog.final.out:                       Number of splices: Total |	2165577
+SRR6283148_trimmed.fqLog.final.out:                       Number of splices: Total |	1917626
+SRR3383696.fqLog.final.out:                      Mismatch rate per base, % |	0.12%
+SRR3383697.fqLog.final.out:                      Mismatch rate per base, % |	0.15%
+SRR3383779_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.08%
+SRR3383780_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.08%
+SRR364389_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.06%
+SRR364390_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.06%
+SRR364398_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.06%
+SRR364399_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.06%
+SRR6283147_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.17%
+SRR6283148_trimmed.fqLog.final.out:                      Mismatch rate per base, % |	0.18%
+SRR3383696.fqLog.final.out:                        Deletion average length |	1.37
+SRR3383697.fqLog.final.out:                        Deletion average length |	1.36
+SRR3383779_trimmed.fqLog.final.out:                        Deletion average length |	1.35
+SRR3383780_trimmed.fqLog.final.out:                        Deletion average length |	1.36
+SRR364389_trimmed.fqLog.final.out:                        Deletion average length |	1.38
+SRR364390_trimmed.fqLog.final.out:                        Deletion average length |	1.38
+SRR364398_trimmed.fqLog.final.out:                        Deletion average length |	1.40
+SRR364399_trimmed.fqLog.final.out:                        Deletion average length |	1.40
+SRR6283147_trimmed.fqLog.final.out:                        Deletion average length |	1.43
+SRR6283148_trimmed.fqLog.final.out:                        Deletion average length |	1.39
+SRR3383696.fqLog.final.out:                 % of reads unmapped: too short |	0.24%
+SRR3383697.fqLog.final.out:                 % of reads unmapped: too short |	0.38%
+SRR3383779_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	4.98%
+SRR3383780_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	3.32%
+SRR364389_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	11.17%
+SRR364390_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	11.06%
+SRR364398_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	16.39%
+SRR364399_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	16.41%
+SRR6283147_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	66.31%
+SRR6283148_trimmed.fqLog.final.out:                 % of reads unmapped: too short |	69.21%
