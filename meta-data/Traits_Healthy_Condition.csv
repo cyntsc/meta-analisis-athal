@@ -1,9 +1,0 @@
-sample,ID,healthy12,healthy12.1,healthy18,healthy18.1,healthy24,healthy24.1,healthy30,healthy30.1
-SRR3383640,healthy12,1,0,0,0,0,0,0,0
-SRR3383641,healthy12.1,0,1,0,0,0,0,0,0
-SRR3383782,healthy18,0,0,1,0,0,0,0,0
-SRR3383783,healthy18.1,0,0,0,1,0,0,0,0
-SRR3383821,healthy24,0,0,0,0,1,0,0,0
-SRR3383822,healthy24.1,0,0,0,0,0,1,0,0
-SRR6283144,healthy30,0,0,0,0,0,0,1,0
-SRR6283145,healthy30.1,0,0,0,0,0,0,0,1
