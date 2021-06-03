@@ -12,8 +12,11 @@ SFT_corr_Athal_Infected_MatrixE.txt <br>
 SFT_corr_Athal_Infected_MatrixBE.txt <br><br>
 
 
-**Modulos obtenidos en cada una de las redes** <br>
-Athal_healthy_mods_MatrixD: modules gotten in Matrix D for Athaliana Healthy (standard ntw)<br>
-Athal_healthy_mods_merged_MatrixD: modules gotten in Matrix D for Athaliana Healthy (merged modules at 0.10 euclidean distances)<br>
-Athal_infected_mods_MatrixE: modules gotten in Matrix E for Athaliana Infected (standard ntw)<br>
-Athal_infected_mods_merged_MatrixE: modules gotten in Matrix E for Athaliana Infected (merged modules at 0.10 euclidean distances)<br>
+**Genes assigned to each module per network** <br>
+Athal_healthy_mods_MatrixD: modules in Matrix D for Athaliana Healthy (standard ntw)<br>
+Athal_healthy_mods_merged_MatrixD: modules in Matrix D for Athaliana Healthy (merged modules at 0.10 euclidean distances)<br>
+Athal_infected_mods_MatrixE: modules in Matrix E for Athaliana Infected (standard ntw)<br>
+Athal_infected_mods_merged_MatrixE: modules in Matrix E for Athaliana Infected (merged modules at 0.10 euclidean distances)<br>
+
+**Module sizes per network** <br>
+Go to folder Modules_size_colors_details\
