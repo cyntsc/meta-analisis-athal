@@ -1,0 +1,26 @@
+sample,Arabidopsis,condition,fungus,ID
+SRR364389,Col-0,Penetrating apressoria,Colletotrichum higginsianum,Ch22
+SRR364400,Col-0,Biotrophic hyphea,Colletotrichum higginsianum,Ch40
+SRR364401,Col-0,Biotrophic hyphea,Colletotrichum higginsianum,Ch40
+SRR364390,Col-0,Penetrating apressoria,Colletotrichum higginsianum,Ch22
+SRR364391,Col-0,Penetrating apressoria,Colletotrichum higginsianum,Ch22
+SRR364392,Col-0,Penetrating apressoria,Colletotrichum higginsianum,Ch22
+SRR364398,Col-0,Biotrophic hyphea,Colletotrichum higginsianum,Ch40
+SRR364399,Col-0,Biotrophic hyphea,Colletotrichum higginsianum,Ch40
+SRR3383696,Col-0,pre-treatment12h,Botrytis cinerea,Bc12
+SRR3383697,Col-0,pre-treatment12h,Botrytis cinerea,Bc12
+SRR3383779,Col-0,main-treatment18h,Botrytis cinerea,Bc18
+SRR3383780,Col-0,main-treatment18h,Botrytis cinerea,Bc18
+SRR10586397,erf72 mutant,treatment for 24 h,Botrytis cinerea,Bc24
+SRR10586399,Col-0,treatment for 24 h,Botrytis cinerea,Bc24
+SRR6283146,Col-0,S sclerotiorum 1980 UF-70,Sclerotinia sclerotiorum,Ss30
+SRR6283147,Col-0,S sclerotiorum 1980 UF-70,Sclerotinia sclerotiorum,Ss30
+SRR6283148,Col-0,S sclerotiorum 1980 UF-70,Sclerotinia sclerotiorum,Ss30
+SRR3383640,Col-0,control,NA,healthy12
+SRR3383641,Col-0,control,NA,healthy12
+SRR3383782,Col-0,control,NA,healthy18
+SRR3383783,Col-0,control,NA,healthy18
+SRR3383821,Col-0,control,NA,healthy24
+SRR3383822,Col-0,control,NA,healthy24
+SRR6283144,Col-0,control,NA,healthy30
+SRR6283145,Col-0,control,NA,healthy30
