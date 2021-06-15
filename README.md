@@ -43,7 +43,7 @@ https://nbviewer.jupyter.org/github/cyntsc/meta-analisis-athal/blob/master/noteb
 **5_Matrix_D_E_Log2_Atypicals**<br>
 https://nbviewer.jupyter.org/github/cyntsc/meta-analisis-athal/blob/master/notebooks/5_Matrix_D_E_Log2_Atypicals.ipynb<br>
 
-Some interactive HTML files about the expression matrices built can be downloaded from the **results-data/matrices_de_expresion/** folder: (just download the file in your local PC and open it. <br>
+Some interactive HTML files about the expression matrices can be downloaded from the **results-data/matrices_de_expresion/** folder or just follow the links below and download the file in your local PC, and open it. <br>
 [Interactive stats for ARABIDOPSIS HEALTHY MatrixD.html](https://github.com/cyntsc/meta-analisis-athal/blob/7c87b3532f85106127df3ff68ab47445221c5971/results-data/matrices_de_expresion/SWEETVIZ_RPT_ARABIDOPSIS_HEALTHY_D.html) 
 <br>
 [Interactive stats for ARABIDOPSIS INFECTED MatrixE.html](https://github.com/cyntsc/meta-analisis-athal/blob/7c87b3532f85106127df3ff68ab47445221c5971/results-data/matrices_de_expresion/SWEETVIZ_RPT_ARABIDOPSIS_INFECTED_E.html)
@@ -59,7 +59,7 @@ Some interactive HTML files about the expression matrices built can be downloade
 **WGCNA scripts:** [WGCNA scripts for Signed-Ntw (pearson)](https://github.com/cyntsc/meta-analisis-athal/tree/master/R_scripts_WGCNA)<br>
 
 **WGCNA results:** [Genetic Modules gotten with WGCNA Signed-Ntw (pearson)](https://github.com/cyntsc/meta-analisis-athal/tree/master/results-data/wgcna)<br>
-Preferred genetic modules results are in folders: <br>
+Here are the genes assigned to each module according to the model made. Preferred genetic modules are in the folders: <br>
 Athal_healthy_mods_merged_MatrixD for A thaliana Healthy<br>
 Athal_infected_mods_merged_MatrixE for A thaliana Infected<br>
 
