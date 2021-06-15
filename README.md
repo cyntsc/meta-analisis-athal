@@ -1,10 +1,10 @@
 <h2>This repository containt the meta-analysis done to track the consensus response in Arabidopsis under several criterias of biotic stress caused by fungi</h2>
  
 Data are bulk RNA-Seq libraries downloaded from the SRA-NCBI<br>
-The methodology followed is Gene-Coexpression-Ntw-Analysis ( Heraquical Clustering ) <br>
-Results are genetic modules (hub-genes) found highly correlated in the included RNA samples <br>
+The ML approach was Gene-Coexpression-Ntw-Analysis ( Hierarchical Clustering ) <br>
+All the results are genetic modules (hub-genes) found highly correlated in the included RNA samples <br>
 Number of samples = 25, 17 infected and 8 muck treatments <br>
-RNA was extracted from leaf among 0 to 48 hpi<br>
+RNA was extracted from leaf among a range from 0 to 48 hpi<br>
 
 ***
 
