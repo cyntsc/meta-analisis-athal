@@ -30,7 +30,7 @@ https://www.polarmicrobes.org/weighted-gene-correlation-network-analysis-wgcna-a
 
 ### If you just want to have a glance at the outputs of the main scripts of this project, you can access this information by following the links.
 
-#### Script to build the expression matrices used in this project
+#### Script to build the expression matrices
 **2_Matrix_A_integrate_raw_countsb** <br>
 https://nbviewer.jupyter.org/github/cyntsc/meta-analisis-athal/blob/master/notebooks/2_Matrix_A_integrate_raw_counts.ipynb <br>
 
@@ -43,15 +43,27 @@ https://nbviewer.jupyter.org/github/cyntsc/meta-analisis-athal/blob/master/noteb
 **5_Matrix_D_E_Log2_Atypicals**<br>
 https://nbviewer.jupyter.org/github/cyntsc/meta-analisis-athal/blob/master/notebooks/5_Matrix_D_E_Log2_Atypicals.ipynb<br>
 
-Some interactive HTML files about the expression matrices built can be downloaded from the **results-data/matrices_de_expresion/** folder: <br>
-SWEETVIZ_RPT_ARABIDOPSIS_HEALTHY_B_C.html <br>
-SWEETVIZ_RPT_ARABIDOPSIS_HEALTHY_D.html<br>
-SWEETVIZ_RPT_ARABIDOPSIS_INFECTED_B_C.html <br>
-SWEETVIZ_RPT_ARABIDOPSIS_INFECTED_D_E.html <br>
-SWEETVIZ_RPT_ARABIDOPSIS_INFECTED_E.html <br>
+Some interactive HTML files about the expression matrices built can be downloaded from the **results-data/matrices_de_expresion/** folder: (just download the file in your local PC and open it. <br>
+[Interactive stats for ARABIDOPSIS HEALTHY MatrixD.html](https://github.com/cyntsc/meta-analisis-athal/blob/7c87b3532f85106127df3ff68ab47445221c5971/results-data/matrices_de_expresion/SWEETVIZ_RPT_ARABIDOPSIS_HEALTHY_D.html) 
+<br>
+[Interactive stats for ARABIDOPSIS INFECTED MatrixE.html](https://github.com/cyntsc/meta-analisis-athal/blob/7c87b3532f85106127df3ff68ab47445221c5971/results-data/matrices_de_expresion/SWEETVIZ_RPT_ARABIDOPSIS_INFECTED_E.html)
+<br>
+[Interactive stats for comparition in ARABIDOPSIS INFECTED MatrixD and E.html](https://github.com/cyntsc/meta-analisis-athal/blob/7c87b3532f85106127df3ff68ab47445221c5971/results-data/matrices_de_expresion/SWEETVIZ_RPT_ARABIDOPSIS_INFECTED_D_E.html)
+<br>
+[More stats...](https://github.com/cyntsc/meta-analisis-athal/tree/master/results-data/matrices_de_expresion)<br>
 
-#### **WGCNA scripts are in R_scripts_WGCNA folder**
-#### **WGCNA genetic modules gotten are in results-data/wgcna folder**
+***
+
+#### Script to get the genetic modules in the expression matrices
+
+**WGCNA scripts:** [WGCNA scripts for Signed-Ntw (pearson)](https://github.com/cyntsc/meta-analisis-athal/tree/master/R_scripts_WGCNA)<br>
+
+**WGCNA results:** [Genetic Modules gotten with WGCNA Signed-Ntw (pearson)](https://github.com/cyntsc/meta-analisis-athal/tree/master/results-data/wgcna)<br>
+Preferred genetic modules results are in folders: <br>
+Athal_healthy_mods_merged_MatrixD for A thaliana Healthy<br>
+Athal_infected_mods_merged_MatrixE for A thaliana Infected<br>
+
+***
 
 Be happy and Enjoy!<br>
 Cynthia SC
