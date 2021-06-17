@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # meta-analisis-athal
 Respaldo del proyecto de meta-analsis en datos RNASeq para la planta arabidopsis infectada por hongo
 =======
+=======
+>>>>>>> b01d583b750e23a006082b529ec19e353dd926a6
 <h2>This repository containt the meta-analysis done to track the consensus response in Arabidopsis under several criterias of biotic stress caused by fungi</h2>
  
 Data are bulk RNA-Seq libraries downloaded from the SRA-NCBI<br>
@@ -76,4 +79,7 @@ Cynthia SC
 
 
 
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> b01d583b750e23a006082b529ec19e353dd926a6
