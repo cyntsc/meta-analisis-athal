@@ -1,0 +1,48 @@
+SRR3383640_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	98.31%
+SRR3383641_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	98.34%
+SRR3383782_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	98.13%
+SRR3383783_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	98.34%
+SRR3383821_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	98.09%
+SRR3383822_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	97.87%
+SRR6283144_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	97.51%
+SRR6283145_trimmo.fqLog.final.out:                        Uniquely mapped reads % |	97.99%
+SRR3383640_trimmo.fqLog.final.out:                          Average mapped length |	91.02
+SRR3383641_trimmo.fqLog.final.out:                          Average mapped length |	90.77
+SRR3383782_trimmo.fqLog.final.out:                          Average mapped length |	91.13
+SRR3383783_trimmo.fqLog.final.out:                          Average mapped length |	91.02
+SRR3383821_trimmo.fqLog.final.out:                          Average mapped length |	90.90
+SRR3383822_trimmo.fqLog.final.out:                          Average mapped length |	90.88
+SRR6283144_trimmo.fqLog.final.out:                          Average mapped length |	118.55
+SRR6283145_trimmo.fqLog.final.out:                          Average mapped length |	118.09
+SRR3383640_trimmo.fqLog.final.out:                       Number of splices: Total |	3348936
+SRR3383641_trimmo.fqLog.final.out:                       Number of splices: Total |	6808228
+SRR3383782_trimmo.fqLog.final.out:                       Number of splices: Total |	9013332
+SRR3383783_trimmo.fqLog.final.out:                       Number of splices: Total |	4251587
+SRR3383821_trimmo.fqLog.final.out:                       Number of splices: Total |	4422997
+SRR3383822_trimmo.fqLog.final.out:                       Number of splices: Total |	2855666
+SRR6283144_trimmo.fqLog.final.out:                       Number of splices: Total |	8917048
+SRR6283145_trimmo.fqLog.final.out:                       Number of splices: Total |	7965398
+SRR3383640_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.07%
+SRR3383641_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.08%
+SRR3383782_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.07%
+SRR3383783_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.07%
+SRR3383821_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.08%
+SRR3383822_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.07%
+SRR6283144_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.12%
+SRR6283145_trimmo.fqLog.final.out:                      Mismatch rate per base, % |	0.13%
+SRR3383640_trimmo.fqLog.final.out:                        Deletion average length |	1.36
+SRR3383641_trimmo.fqLog.final.out:                        Deletion average length |	1.36
+SRR3383782_trimmo.fqLog.final.out:                        Deletion average length |	1.36
+SRR3383783_trimmo.fqLog.final.out:                        Deletion average length |	1.36
+SRR3383821_trimmo.fqLog.final.out:                        Deletion average length |	1.37
+SRR3383822_trimmo.fqLog.final.out:                        Deletion average length |	1.36
+SRR6283144_trimmo.fqLog.final.out:                        Deletion average length |	1.34
+SRR6283145_trimmo.fqLog.final.out:                        Deletion average length |	1.35
+SRR3383640_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.07%
+SRR3383641_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.09%
+SRR3383782_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.07%
+SRR3383783_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.07%
+SRR3383821_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.09%
+SRR3383822_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.08%
+SRR6283144_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.73%
+SRR6283145_trimmo.fqLog.final.out:                 % of reads unmapped: too short |	0.15%

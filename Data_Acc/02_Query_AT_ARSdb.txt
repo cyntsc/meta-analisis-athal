@@ -1,0 +1,21 @@
+ARS Database: SEARCHING TRANSCRIPTOMES USING THE ARS SELECTOR FILTER
+
+
+ARS Database is an online database for exploring 20,000+ published Arabidopsis RNA-Seq libraries. ARS is available at http://ipf.sustc.edu.cn/pub/athrna/
+
+Direct link to the Arabidopsis thaliana epigenomic data:
+http://jixianzhai.org/resources/sRNAdb.php
+
+STRATEGY.
+
+1) Download http://jixianzhai.org/resources/sRNAdb.php
+
+2) Grep by 
+
+Before filter table:
+$ wc -l lib_base_Info_190314_V2.csv 
+20069 lib_base_Info_190314_V2.csv
+
+After grep by 'leaves' criteria: 
+$ wc -l ARS_base_info.csv 
+5725 ARS_base_info.csv

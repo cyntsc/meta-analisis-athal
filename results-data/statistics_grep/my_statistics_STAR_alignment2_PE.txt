@@ -1,0 +1,12 @@
+SRR10586397_trimmedPELog.final.out:                        Uniquely mapped reads % |	89.07%
+SRR10586399_trimmedPELog.final.out:                        Uniquely mapped reads % |	88.69%
+SRR10586397_trimmedPELog.final.out:                          Average mapped length |	293.82
+SRR10586399_trimmedPELog.final.out:                          Average mapped length |	293.96
+SRR10586397_trimmedPELog.final.out:                       Number of splices: Total |	19778475
+SRR10586399_trimmedPELog.final.out:                       Number of splices: Total |	19516687
+SRR10586397_trimmedPELog.final.out:                      Mismatch rate per base, % |	0.10%
+SRR10586399_trimmedPELog.final.out:                      Mismatch rate per base, % |	0.09%
+SRR10586397_trimmedPELog.final.out:                        Deletion average length |	1.58
+SRR10586399_trimmedPELog.final.out:                        Deletion average length |	1.59
+SRR10586397_trimmedPELog.final.out:                 % of reads unmapped: too short |	9.74%
+SRR10586399_trimmedPELog.final.out:                 % of reads unmapped: too short |	10.14%

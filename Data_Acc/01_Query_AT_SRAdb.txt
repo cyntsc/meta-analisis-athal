@@ -1,0 +1,57 @@
+SRA/NCBI SEARCHING TRANSCRIPTOMES USING THE SRA RUN SELECTOR FILTER
+
+STRATEGY 1
+
+To search for candidate transcriptomes to include in this research, the following activities were done
+
+1) Going to: https://www.ncbi.nlm.nih.gov/sra 
+
+2)  In the SRA Advanced Search Builder
+Query: 
+(((((Arabidopsis[Organism]) AND "transcriptomic"[Source]) AND "rna seq"[Strategy]) AND "illumina"[Platform]) AND "filetype fastq"[Properties])
+Items: 13131
+
+3)  In the SRA Advanced Search Builder
+Query:
+(((((((Arabidopsis[Organism]) AND "transcriptomic"[Source]) AND "rna seq"[Strategy]) AND "illumina"[Platform]) AND "filetype fastq"[Properties])) AND LEAVES[Text Word])
+Items: 1333
+
+4)  In the SRA Advanced Search Builder
+Query:
+(((((((((Arabidopsis[Organism]) AND "transcriptomic"[Source]) AND "rna seq"[Strategy]) AND "illumina"[Platform]) AND "filetype fastq"[Properties])) AND LEAVES[Text Word])) AND infected[Text Word])
+Items: 80
+
+
+====== SRA RUN SELECTOR ==============
+View results as an expanded interactive table using the RunSelector. Send results to Run selector.
+
+In this view you can see an additional filter list, where it is convenient to keep an eye into the library size, bases or layout according with the grade of automatization to parse the data. 
+In this particular case where we want to execute a concensus network analysis, it is convenient to watch two issues:
+
+1) In transncriptomics, the larger the library, the more sensitive the level of quantification, that is why, in the scientist literature we can find recommendations indicating that for a detection of moderate to high contigs, a ~ 5Mb is sufficient. However, it is necessary to review what we get and establish an appropriate range "Whitout to forget the core of the investigation"
+    Exploring dataset #4 (the better get until now), provide us information about files size as it can be shown below:
+    2   0-1,000.00M
+    20  2.00 G-3.00 G
+    42  3.00 G-4.00 G
+    7   4.00 G-5.00 G
+    1   5.00 G-6.00 G
+    3   6.00 G-7.00 G
+    5   7.00 G-8.00 G
+    
+    According with this information, result convenient to set a range between (3.00 and 5.00) for two reasons: ~5G is a good size for detection from modetate to hight transcripts, and also because we are focused in concensus networks (independent data files), so, the balance among the samples need to be controlled.
+
+If we apply this technical issue, we get among our 80 items just 50 candidates, with no guarranty that this new dataset would match the specified criteria. So, perhaps we need a better strategy.
+
+Filtering by... "... word infected".  
+
+We get 56 rows related to Pseudomonas syringae (filtering by complement), as it is a bacterium and we are not interested on it, it means just remains 24 possible options. We also found Methylobacterium, sphingomonas melonis, etc. In conclusion we could not  identify any candidate with this strategy.
+
+
+Cynthia S. Cardinault
+
+
+
+
+
+
+
