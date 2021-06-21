@@ -24,6 +24,10 @@ Create Matrix C: take the expression matrix B and create a standardized TPM-expr
 Create Matrix D: take the expression matrix C and transform into a Log2(TPM+1) expression matrix to reduce the effect of the extreme values in the data.<br>
 Create Matrix E: take the expression matrix D and if exists remarkable atypical distributions, remove them from the expression matrix to reduce spurious association in a GCN. <br>
 
+**CLUSTER DIFFERENTIATION <br>
+8_modules_differentiation_mergedClusters.ipynb** <br>
+Get the percentual difference between each module in the infected merged-ntw against the modules in the control merged-ntw. <br>
+
 **Optionally<br>
 5_Matrix_B_to_E.ipynb** <br>
 Assumming that you do not want to filter the data, you can use this script to jump the step C, and just create a Log2(TPM+1) expression matrix.  <br>
