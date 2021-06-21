@@ -1,3 +1,4 @@
+
 <h2>This repository containt the meta-analysis done to track the consensus response in Arabidopsis under several criterias of biotic stress caused by fungi</h2>
  
 Data are bulk RNA-Seq libraries downloaded from the SRA-NCBI<br>
@@ -67,8 +68,6 @@ Athal_infected_mods_merged_MatrixE for A thaliana Infected<br>
 
 Be happy and Enjoy!<br>
 Cynthia SC
-
-
 
 
 
