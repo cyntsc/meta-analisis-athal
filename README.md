@@ -2,7 +2,7 @@
 <h2>Here is the metatranscriptomic analysis done to identify genetic patterns related with the consensus response in Arabidopsis under diverse  biotic stressors caused by fungi</h2>
 
 **Experimental Design**
-* The experiment was designed in 2 blocks. The first with 8 transcriptomes from a healthy plant arranged in 4 groups for control (healthy12, healthy18, healthy24 and healthy30), and the second with 17 transcriptomes from a plant infected with three types of Ascomycetes fungi (B=Botrytis cinerea, Ch=Colletotrichum higginsianum, and Ss=Sclerotinia sclerotiorum) arranged in 5 groups for the treatments (Bc12, Bc18, Bc24, Ch22, Ch40 and Ss30) --the digits correspond to the time of inoculation (hpi) with the fungus.<br>
+* The experiment was designed in 2 blocks. First block with 8 transcriptomes from healthy plants arranged in 4 groups for control (healthy12, healthy18, healthy24 and healthy30), and Second block with 17 transcriptomes from infected plants in interaction with three Ascomycete fungi (B=Botrytis cinerea, Ch=Colletotrichum higginsianum, and Ss=Sclerotinia sclerotiorum) arranged in 5 groups for the treatments (Bc12, Bc18, Bc24, Ch22, Ch40 and Ss30) --the digits correspond to the time of inoculation (hpi) with the fungus.<br>
 * The treatments represent 68% of the included samples (32% for C higginsianum, 24% for B cinerea and 12% for S sclerotiorum), the remaining 32% corresponds to the controls.<br>
 * RNA was extracted from leaf among a range from 0 to 48 hpi <br>
 * Just transcriptomes sequenced in Illumina platforms with a lenght.seq>100 & reads>5G were considered. <br>
