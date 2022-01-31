@@ -11,18 +11,21 @@
 * Data are bulk RNASeq libraries downloaded from the SRA-NCBI:<br>
 ID Bioprojects: PRJNA148307 (SRR364389, SRR364390, SRR364391, SRR364392, SRR364400, SRR364401, SRR364398 and SRR364399) for arabidopsis infected with Colletotrichum higginsianum at 22 and 40 hpi, PRJNA315516 (SRR3383696, SRR3383697,  SRR3383779 and SRR3383780) arabidopsis infected with Botrytis cinerea at 12 and 18 hpi, PRJNA593073 (SRR10586397 and SRR10586399) with Botrytis cinerea at 24 hpi, and PRJNA418121 (SRR6283146, SRR6283147 and SRR6283148) arabidopsis infected with Sclerotinia sclerotiorum at 30 hpi.  The arabidopsis healthy RNASeq libraries were downloaded from the same repository under the ID Bioprojects: PRJNA315516 (SRR3383640 and SRR3383641) mock treatment at 12hr, (SRR3383782 and SRR3383783) mock treatment at 18 hr and (SRR3383821 and SRR3383822) mock treatment at 30hr, and PRJNA418121 (SRR6283144 and SRR6283145) mock treatment at 30hr. <br>
 * For the RNASeq raw-counts, I followed the alignment to genetic reference approach. The GENOME TAIR10 (GenBank accessions CP002684 – CP002688) and the ARAPORTt11 annotation were used, with a target of 27655 Protein-Coding-Sequence (CDS).
-* I used a ML not-supervised approach,Hierarchical Clustering, made with WGCNA.<br>
+* A Clustering (ML not-supervised) approach was used, made with WGCNA. Signed-networks were built with the *Pearson* method. A threshold 𝛃=0.80 for signed-ntw & merged at 0.1 euclidean distances was set. Genetic-Modules with corr ≷ 0.75 were extracted.<br>
+* perks
+* Genetic-Modules on infected plants of interest were identified through logical operations, extracting modules differentiated between 100 and 77% from the healthy plants.<br>
 
 ***
 
-**Folders containt**:<br>
+**Folder content**:<br>
 
-**HTC_scripts_biotools:** scripts used to get the gene expression raw-counts.<br>
-**R_scripts_WGCNA:** scripts written in R to build the genetic ntws.<br>
-**grep_utilities:** grep utilities to get some stats.<br>
+**HTC_scripts_biotools:** scripts to get the raw-counts.<br>
+**R_scripts_WGCNA:** scripts in R to build the genetic ntws with WGCNA.<br>
+**grep_utilities:** grep build-in commands to extract data from files (g.e:alignment stats).<br>
 **meta-data:** mostly files to link external data to the genetic ntws.<br>
 **notebooks:** phython 3+ scritps to build the expression matrices. <br>
 **results-data:** statistical results, ntw results, intermedian results, all that can be considered a product comming from a process.  <br><br>
+**Supplementary material**
  
  ***
 
