@@ -45,6 +45,7 @@ here::here();     # Top level dir: /data/run/cyntsc/Project_athal_wgcna
 
 ## Allow multi-treads and setting this in the bash environ
 allowWGCNAThreads();
+
 ALLOW_WGCNA_THREADS=30;
 ## Initial variables 
 options(stringsAsFactors = FALSE);
@@ -52,7 +53,7 @@ enableWGCNAThreads();
 
 #athalData3 <-  read.csv(here("data", "all_infected_Log2TPM_No_Ss30.csv"), header=TRUE,  sep='\t')
 athalData3 <-  read.csv(here("data", "matrix_E_infected.csv"), header=TRUE,  sep='\t')
-dim(athalData3);   # 20265  x  15
+dim(athalData3);   # 20274  x  15
 
 ## rearrange columns accordint to traits meta-data (must match)
 col_order <- c("Genes", "Bc12",   "Bc12.1", "Bc18",   "Bc18.1", "Bc24",
