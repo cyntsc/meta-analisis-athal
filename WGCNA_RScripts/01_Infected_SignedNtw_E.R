@@ -6,15 +6,15 @@
 ###
 ###
 ### Made by: Cynthia Soto 
-### Date: May 24, 2021
-### Latest update: xxxx
+### Date: March 23, 2021
+### Latest update: May 21, 2021
 ###
 ### This is a PhD project associated at CICY Mx with the technical support (HPC) of 
 ###                                     Dr.Childs Lab at MSU.
 ###
 ### DATA ASSUMPIONS:
 ### 1) RNA-Seq libraries are                             ** 14  I N F E C T E D     **  w/o ATYPICAL SAMPLE DISTRIBUTIONS 
-###                                                       SAMPLES OF A.THALIANA IN MATRIX B TO E       
+###                                                       SAMPLES OF A.THALIANA       
 ###
 ### 2) Raw counts were generated with HTSeq-count (python) previously to be aligned with the STAR Tool.
 ### 3) Raw counts were normalized into TPMs after removing genes with zeros in common thru all the samples (~12% of the gene tarjets)
@@ -50,9 +50,9 @@ ALLOW_WGCNA_THREADS=30;
 options(stringsAsFactors = FALSE);
 enableWGCNAThreads();
 
-athalData3 <-  read.csv(here("data", "matrix_BE_infected.csv"), header=TRUE,  sep='\t')
-dim(athalData3);   # 24239  x  15
-
+#athalData3 <-  read.csv(here("data", "all_infected_Log2TPM_No_Ss30.csv"), header=TRUE,  sep='\t')
+athalData3 <-  read.csv(here("data", "matrix_E_infected.csv"), header=TRUE,  sep='\t')
+dim(athalData3);   # 20265  x  15
 
 ## rearrange columns accordint to traits meta-data (must match)
 col_order <- c("Genes", "Bc12",   "Bc12.1", "Bc18",   "Bc18.1", "Bc24",
@@ -87,7 +87,6 @@ if (!gsg$allOK)
     printFlush(paste("Removing samples:", paste(rownames(athalData3)[!gsg$goodSamples], collapse=", ")))
   athalData3= athalData3[gsg$goodSamples, gsg$goodGenes]
 }
-dim(athalData3);   # 24239  x  15
 
 # TRAITMENTS BY SAMPLE (fungi-type-hpi interaction)
 datTraits <- read.csv(here("data", "Traits_Infected_sample.csv"), header=TRUE,  sep='\t')   
@@ -111,7 +110,7 @@ rownames(datTraits2) = datTraits2$ID
 datTraits2$ID = NULL                 ## Set ID sample column as index row
 table(rownames(datTraits2)==rownames(athalData3)) #should return TRUE if datasets align correctly, otherwise your names are out of order
 
-#save(athalData3, datTraits, datTraits2, file="Athal_Infected_MatrixE.RData")
+save(athalData3, datTraits, datTraits2, file="Athal_Infected_MatrixE.RData")    # FemaleLiver-01-dataInput.RData
 #load("Athal_Infected_MatrixE.RData")
 
 ###########################################################################################################
@@ -136,7 +135,7 @@ sft=pickSoftThreshold(athalData3,
 
 #warnings()
 sft
-#write.table(sft, file = "results/SFT_corr_Athal_Infected_MatrixBE.txt", sep = ",", quote = FALSE, row.names = T)
+#write.table(sft, file = "results/SFT_corr_Athal_Infected_MatrixE.txt", sep = ",", quote = FALSE, row.names = T)
 
 ##Plot the results
 sizeGrWindow(5, 5)
@@ -145,7 +144,7 @@ cex1 = 0.9;
 # Scale-free topology fit index as a function of the soft-thresholding power
 plot(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],xlab="Soft Threshold (power)",
      ylab="Scale Free Topology Model Fit, Signed R^2 / Log2(TPM)",
-     type="n", main = paste("Scale independence for Athal.infected \n (Matrix B to E)"));
+     type="n", main = paste("Scale independence for Athal.infected \n (Matrix E)"));
 text(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],labels=powers,cex=cex1,col="red");
 # Red line corresponds to using an R^2 cut-off
 abline(h=0.80,col="red");  
@@ -153,12 +152,12 @@ abline(h=0.80,col="red");
 # Mean connectivity as a function of the soft-thresholding power
 plot(sft$fitIndices[,1], sft$fitIndices[,5],xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",main = paste("Mean connectivity"))
 text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
-abline(h=283,col="blue");
+abline(h=271,col="blue");
 
 # Median connectivity as a function of the soft-thresholding power
 plot(sft$fitIndices[,1], sft$fitIndices[,6],xlab="Soft Threshold (power)",ylab="Median Connectivity", type="n",main = paste("Median connectivity"))
 text(sft$fitIndices[,1], sft$fitIndices[,6], labels=powers, cex=cex1,col="red")
-abline(h=215 ,col="green");
+abline(h=207 ,col="green");
 
 softPower = 27; # all_infected NO Ss30 samples
 
@@ -171,9 +170,11 @@ softPower = 27; # all_infected NO Ss30 samples
 #calclute the adjacency matrix
 adjacency= adjacency(athalData3,type = "signed",    #specify network type
                power = softPower);
-head(adjacency)
 dim(adjacency)
-adj[1:20]
+head(adjacency)
+adjacency[1:100]
+#adjacency[2:5]
+#adjacency[3:5]
 
 ## translate the adjacency into topological overlap matrix and calculate the corresponding dissimilarity
 ## this action minimize the effects of noise and spurious associations
@@ -182,8 +183,8 @@ TOM=TOMsimilarityFromExpr(adjacency,                         #athalData3
                           power = softPower);
 dissTOM=1-TOM
 
-#save(dissTOM, file="Athal_Infected_DissTOM_MatrixE.RData")
-#load("Athal_Infected_DissTOM_MatrixE.RData")
+save(dissTOM, file="Athal_Infected_DissTOM_MatrixE.RData") 
+load("Athal_Infected_DissTOM_MatrixE.RData")
 
 ###########################################################################
 ##
@@ -198,7 +199,7 @@ geneTree = hclust(as.dist(dissTOM), method="average")
 ## Plot the results
 sizeGrWindow(9, 12)
 #plot the resulting clustering tree (dendrogram)
-plot(geneTree, xlab="Gene clusters", main="Gene clustering on TOM−based dissimilarity for A.thaliana infected (Matrix B to E)", cex=0.3)   # sub="Signed-Ntw (average)" , labels= FALSE, hang=0.04
+plot(geneTree, xlab="Gene clusters", main="Gene clustering on TOM−based dissimilarity for A.thaliana infected (Matrix E)", cex=0.3)   # sub="Signed-Ntw (average)" , labels= FALSE, hang=0.04
 
 ###################################################################################
 ##
@@ -230,27 +231,28 @@ dynamicMods = cutreeDynamic(dendro= geneTree,
 
 ## gives the module labels and the size of each module. Lable 0 is reserved for unassigned genes
 table(dynamicMods)
-#write.table(table(dynamicMods), file = "results/dynamicMods_Athal_Infected_MatrixBE.txt", sep = ",", quote = FALSE, row.names = F)
+# write.table(table(dynamicMods), file = "results/dynamicMods_Athal_Infected_MatrixE.txt", sep = ",", quote = FALSE, row.names = F)
 
 ## # Convert numeric lables into colors
 dynamicColors = labels2colors(dynamicMods)      ## colors code is assigned to plot
 sort(table(dynamicColors), decreasing = TRUE)   ## Get the number of genes by color
-#write.table(sort(table(dynamicColors), decreasing = TRUE), file = "results/dynamicColors_Athal_Infected_MatrixBE.txt", sep = ",", quote = FALSE, row.names = F)
+# write.table(sort(table(dynamicColors), decreasing = TRUE), file = "results/dynamicColors_Athal_Infected_MatrixE.txt", sep = ",", quote = FALSE, row.names = F)
 
 # Plot the dendrogram and colors underneath
 sizeGrWindow(8,6)
 plotDendroAndColors(geneTree, dynamicColors, "Dynamic Tree Cut",dendroLabels = FALSE, hang = 0.03,addGuide = TRUE, guideHang = 0.05,
-                    main = "Gene dendrogram and module colors for Athal infected \n Matrix BE")
+                    main = "Gene dendrogram and module colors for Athal infected \n Matrix E")
 
-#save(dynamicMods, dynamicColors, file="Athal_Infected_DynamicMods_MatrixE.RData")
-#load("Athal_Infected_DynamicMods_MatrixE.RData")
+save(dynamicMods, dynamicColors, file="Athal_Infected_DynamicMods_MatrixE.RData")
+load("Athal_Infected_DynamicMods_MatrixE.RData")
 
 ##################################################################################################
 #
-##                      Calculation of the topological overlap matrix
+##                      Plot the topological overlap matrix
 #
 ##################################################################################################
 ## Raise the dissimilarity matrix to the power of 27 to bring out the module structure
+sort(table(dynamicColors), decreasing = TRUE)
 restGenes= (dynamicColors != "grey")                   #restGenes= (dynamicColors == "mediumpurple2")
 length(restGenes)
 ##set the DIAGONAL of the dissimilarity to NA 
@@ -259,7 +261,7 @@ sizeGrWindow(7,7)
 TOMplot(dissTOM, 
         geneTree, 
         as.character(dynamicColors[dynamicColors]),
-        main = "TOM for A.thaliana infected / Matrix B to E");
+        main = "TOM for A.thaliana infected / Matrix E");
 
 ##################################################################################################
 #
@@ -272,18 +274,21 @@ MEList= moduleEigengenes(athalData3, colors= dynamicColors,
                          excludeGrey = TRUE,
                          softPower = softPower)
 MEs = MEList$eigengenes                         ## Here are the ME tables by color module
+#MEs[1:5]
+#MEs$MEaliceblue
+
 # Calculate dissimilarity of module eigengenes
 MEDiss = 1-cor(MEs)          
 # Cluster module eigengenes
 METree = hclust(as.dist(MEDiss),method= "average")
-#save(MEList, MEs, MEDiss, METree, file= "Athal_Infected_Module_Identification_MatrixE.RData")
+save(MEs, MEDiss, METree, file= "Athal_Infected_Module_Identification_MatrixE.RData")
 #load("Athal_Infected_Module_Identification_MatrixE.RData")
 
 # Clustering of module eigengenes
 sizeGrWindow(6,14)
 ## plots tree showing how the eigengenes cluster together
 #plot(METree, main = "Clustering of module eigengenes for A.thaliana infected", xlab = "", sub = "", labels = FALSE)
-plot(METree, main= "Clustering of module eigengenes for A.thaliana infected (Matrix BE)", 
+plot(METree, main= "Clustering of module eigengenes for A.thaliana infected (Matrix E)", 
      xlab= "Module Eigengenes", 
      ylab = "", sub= "",
      cex.main = 1, cex.lab = 1, cex.axis = 1)
@@ -303,20 +308,25 @@ abline(h=MEDissThres, col = "red")
 merge = mergeCloseModules(athalData3, dynamicColors, 
                           cutHeight= MEDissThres, 
                           verbose =3)
+# merge$newMEs
+# merge$cutHeight
+
 # The merged module colors
 mergedColors = merge$colors
 # Eigengenes of the new merged modules
 mergedMEs = merge$newMEs
+mergedMEs$MEgreen3
+
 length(mergedMEs)   ## number if merged MEs
 sort(table(mergedColors), decreasing = TRUE)
-#write.table(sort(table(mergedColors), decreasing = TRUE), file = "results/mergedColors_Athal_Infected_MatrixBE.txt", sep = ",", quote = FALSE, row.names = F)
+# write.table(sort(table(mergedColors), decreasing = TRUE), file = "results/mergedColors_Athal_Infected_MatrixE.txt", sep = ",", quote = FALSE, row.names = F)
 
-#mergedMEs$MEviolet
+
 #INCLUE THE NEXT LINE TO SAVE TO FILE
 #pdf(file="clusterME.pdf")
 
 ## plot dendrogram with module colors below it
-plotDendroAndColors(geneTree, main= "Clustering of MEs corresponding to correlation of 0.90 merged \nA thaliana infected (Matrix BE)", 
+plotDendroAndColors(geneTree, main= "Clustering of MEs corresponding to correlation of 0.90 merged \nA thaliana infected (Matrix E)", 
                     cbind(dynamicColors, mergedColors), 
                     c("Dynamic Tree Cut", "Merged dynamic"), 
                     dendroLabels = FALSE, 
@@ -331,8 +341,8 @@ MEs = mergedMEs
 #INCLUE THE NEXT LINE TO SAVE TO FILE
 #dev.off()
 
-#save(MEs, moduleLabels, moduleColors, geneTree, file= "Athal_Infected_MergedMods_MatrixE.RData")
-#load("Athal_Infected_MergedMods_MatrixE.RData")
+# save(MEs, moduleLabels, moduleColors, geneTree, file= "Athal_Infected_MergedMods_MatrixE.RData")
+# load("Athal_Infected_MergedMods_MatrixE.RData")
 
 ## Write modules no merged in the path location
 length(dynamicColors)
@@ -381,53 +391,6 @@ TOMplot(dissTOM,
 #par(mfrow=c(1,1));
 #plot(cmd1, col=as.character(mergedColors), main='MDS plot for A.thaliana infected')
 
-#####################################################################################
-##
-##       Correlate traits (Quantifying module–trait associations)
-##       Identify modules that are significantly associated with the measured biology traits
-##       Here, We use a correlation by sample
-##
-#####################################################################################
-
-## Define the number of genes and samples
-nGenes = ncol(athalData3)
-nSamples = nrow(athalData3)
-## Recalculate MEs with color labels.  moduleColors was replaced by mergedColors (line.317)    
-MEs0 = moduleEigengenes(athalData3, moduleColors)$eigengenes  # Calculates module eigengenes (1st principal component) of modules in a given single dataset
-MEs = orderMEs(MEs0)
-moduleTraitCor = cor(MEs, datTraits, use= "p")
-moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)   #Calculates Student asymptotic p-value for given correlations.
-                                                                 #Asymptotic p-values are useful for large sample sizes when the calculation of an exact p-value is too computer-intensive.
-# We color code each association by the correlation value
-
-## Print correlation and p-value heatmap between modules and traits
-## textMatrix= paste(signif(moduleTraitCor, 2), "\n(", signif(moduleTraitPvalue, 1), ")", sep= "")
-## Print just the correlation heatmap between modules and traits.
-textMatrix= paste(signif(moduleTraitCor, 2))
-## Print "" if too many modules
-#textMatrix= ""
-dim(textMatrix) = dim(moduleTraitCor)
-#par(mar= c(6, 8.5, 3, 3))
-sizeGrWindow(9, 12)
-par(mar= c(3, 10, 2, 1))    # margen inferior - y(izq) + margen superior - y(der)
-
-#display the corelation values with a heatmap plot
-#INCLUE THE NEXT LINE TO SAVE TO FILE
-#pdf(file="heatmap.pdf")
-labeledHeatmap(Matrix= moduleTraitCor,
-               xLabels= names(datTraits),
-               yLabels = names(MEs),
-               font.lab.x = 2,                          # set the font blod style
-               font.lab.y = 0.3,
-               ySymbols= names(MEs),
-               colorLabels= FALSE,
-               colors= blueWhiteRed(50), #blueWhiteRed(50), greenBlackRed()
-               textMatrix= (textMatrix),
-               setStdMargins= FALSE,
-               cex.text= 0.6,
-               zlim= c(-1,1),
-               main= paste("Module-trait relationships by sample for A thaliana infected (Matrix BE)"))
-
 
 #####################################################################################
 ##
@@ -450,9 +413,10 @@ moduleTraitPvalue2 = corPvalueStudent(moduleTraitCor2, nSamples)   #Calculates S
 # We color code each association by the correlation value
 
 ## Print correlation and p-value heatmap between modules and traits
-textMatrix2= paste(signif(moduleTraitCor2, 2), " (", signif(moduleTraitPvalue2, 1), ")", sep= "")
+#textMatrix2= paste(signif(moduleTraitCor2, 2), " (", signif(moduleTraitPvalue2, 1), ")", sep= "")
 ## Print just the correlation heatmap between modules and traits.
-#textMatrix= paste(signif(moduleTraitCor, 2), " / (", signif(moduleTraitPvalue, 1), ")", sep= "")
+#textMatrix2= paste(signif(moduleTraitCor2, 2), " / (", signif(moduleTraitPvalue, 1), ")", sep= "")
+textMatrix2= paste(signif(moduleTraitCor2, 2))
 ## Print "" if too many modules
 #textMatrix= ""
 dim(textMatrix2) = dim(moduleTraitCor2)
@@ -475,4 +439,17 @@ labeledHeatmap(Matrix= moduleTraitCor2,
                setStdMargins= FALSE,
                cex.text= 0.6,
                zlim= c(-1,1),
-               main= paste("Module-trait by hpi for A thaliana infected (Matrix BE)"))
+               main= paste("Module-trait by h.p.i"))
+
+
+
+
+###################################################################################################
+##
+##                 Relating modules to external information and identifying important genes   
+##                                   Gene Significance (GS) and ModuleMembership (MM)
+##                 Important Note: 
+##                                  Chunck below is just an example
+##                                  go to the file GeneSignificance_ModuleMembership.R to see more details 
+###################################################################################################
+
