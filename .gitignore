@@ -31,3 +31,7 @@ meta-data/Araport11_GFF3_genes_transposons.201606.gtf
 meta-data/Athaliana_447_TAIR10.fa
 meta-data/trash/
 meta-data/Araport11_GFF3.gff
+
+# Objetos creados por los scripts R que son demasiado grandes para almacenarse en el repo con el metodo convencional
+# csc/23-marzo-2022
+WGCNA_RScripts/*.RData
