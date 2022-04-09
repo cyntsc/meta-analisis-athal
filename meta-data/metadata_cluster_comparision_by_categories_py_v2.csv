@@ -1,0 +1,32 @@
+RUN_ID,ORIGINAL_CLUSTER_NAME,Cluster_Type,Cluster_Desc,Cluster_Number,Number_Of_Genes,Unique_Genes,Enrichment_Score
+RUN0,Clust_12,1,C1. Cell wall / extracellular region,C1. Cell wall / ER,28,14,0.42835
+RUN1,Clust_8,1,C1. Cell wall / extracellular region,C1. Cell wall / ER,28,14,0.42835
+RUN3,Clust_6,1,C1. Cell wall / extracellular region,C1. Cell wall / ER,22,12,0.09393
+RUN3,Clust_2,2,C2. Cell wall biogenesis,C2. Cell wall B,17,6,1.11324
+RUN3,Clust_3,3,C3. Developmental protein,C3. Dev. protein,17,8,0.62078
+RUN0,Clust_9,3,C3. Developmental protein,C3. Dev. protein,23,8,0.59716
+RUN1,Clust_6,3,C3. Developmental protein,C3. Dev. protein,23,8,0.59716
+RUN3,Clust_1,4,C4. Glycosyltransferase,C4. Glycosyltrans,29,12,1.42021
+RUN0,Clust_3,4,C4. Glycosyltransferase,C4. Glycosyltrans,34,12,1.34897
+RUN1,Clust_2,4,C4. Glycosyltransferase,C4. Glycosyltrans,34,12,1.34897
+RUN6,Clust_1,4,C4. Glycosyltransferase,C4. Glycosyltrans,17,6,1.11324
+RUN0,Clust_6,5,C5. Methyltransferase,C5. Methyltransf,13,7,0.87954
+RUN1,Clust_4,5,C5. Methyltransferase,C5. Methyltransf,13,7,0.87954
+RUN0,Clust_7,6,C6. Microtubule binding,C6. Microtubule B,11,6,0.77645
+RUN1,Clust_5,6,C6. Microtubule binding,C6. Microtubule B,11,6,0.77645
+RUN6,Clust_2,7,C7. Protein kinase activity,C7. PK activity,33,10,0.61727
+RUN1,Clust_7,7,C7. Protein kinase activity,C7. PK activity,52,15,0.49484
+RUN3,Clust_4,7,C7. Protein kinase activity,C7. PK activity,52,15,0.49484
+RUN0,Clust_11,7,C7. Protein kinase activity,C7. PK activity,85,17,0.44928
+RUN1,Clust_3,8,C8. Protein transport,C8. Protein transp,18,9,1.18240
+RUN0,Clust_4,8,C8. Protein transport,C8. Protein transp,23,11,1.11126
+RUN0,Clust_13,9,C9. Regulation of transcription,C9. Regulation transc,75,27,0.31824
+RUN1,Clust_9,9,C9. Regulation of transcription,C9. Regulation transc,75,27,0.31824
+RUN3,Clust_5,9,C9. Regulation of transcription,C9. Regulation transc,75,27,0.31824
+RUN6,Clust_3,9,C9. Regulation of transcription,C9. Regulation transc,29,11,0.08344
+RUN0,Clust_2,10,C10. Sterol metabolism,C10. Sterol met,22,4,1.35113
+RUN1,Clust_1,10,C10. Sterol metabolism,C10. Sterol met,22,4,1.35113
+RUN0,Clust_1,11,C11. WD40 repeat / G-protein,C11. WD40 repeat ,28,9,1.55271
+RUN0,Clust_5,12,C12. Zinc finger,C12. Zinc finger,17,5,1.01733
+RUN0,Clust_8,13,C13. mRNA binding,C13. mRNA binding,14,6,0.62084
+RUN0,Clust_10,14,C14. LRR Receptors,C14. LRR Receptors,15,5,0.52845
