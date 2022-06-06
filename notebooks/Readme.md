@@ -1,6 +1,7 @@
-<h2> The below python scripts are the source code to buil a expression matrix for clustering since zero. Raw-count must be provided, such as those produced with HTSeq-count or its equivalent in Salmon. The expression matrix is composed by 4-Steps where a standardized log2(TPM+1) matrix is produced. </h2>
-These scripts are complementary to my thesis work and will be fully free after be published. <br>
-If you find some of them useful feel free to use them, just please give the corresponding credits as:<br> Cynthia-Cardinault (2022) <br><br>
+<h2> These python scripts are the source code for building an expression array for clustering from scratch. The raw-count files, produced with HTSeq-count or its equivalent in salmon, must be ready. The expression matrix is composed of 4 sequential steps where a standardized log2 matrix (TPM+1) is produced as a final product. </h2>
+These scripts are complementary to my thesis work and will be totally free after publication. <br>
+If you find some of them useful, feel free to use them, just please give proper credits like:
+<br> Cynthia-Cardinault (2022) <br><br>
 Good luck and success<br>
 Cynthia SC<br><br>
 
