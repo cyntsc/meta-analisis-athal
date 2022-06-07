@@ -1,13 +1,13 @@
-<h3> Scripts for building an expression array for clustering from scratch.</h3>
-<ul>
-    <li>The process to build the expression matrix is composed of 4 sequential steps where a standardized log2 matrix (TPM+1) is produced as a final product. </li>
-    <li>The raw-count files to integrate the expression array must be ready and available before to try this pipeline. </li>
-    <li>The raw-count used here were produced with the HTSeq-count tool from bulk RNASeq libraries. </li>
-</ul>
+### Scripts for building an expression array for clustering from scratch
+<ol>
+    <li> The process to build the expression matrix is composed of 4 sequential steps where a standardized log2 matrix (TPM+1) is produced as a final product. </li>
+    <li> The raw-count files to integrate the expression array must be ready and available before to try this pipeline. </li>
+    <li> The raw-count used here were produced with the HTSeq-count tool from bulk RNASeq libraries. </li>
+</ol>
     
 These scripts are complementary to a thesis research and will be totally free after publication. <br>
-If you find some of them useful, feel free to try them, just please give proper credits like: <br> 
-Cynthia-Cardinault (2022) <br>
+If you find some of them useful, feel free to try them, just please give proper credits like: <br> <br> 
+*Cynthia-Cardinault (2022)* <br>
 
 <h3>Python scripts to build an expression array for clustering</h3>
 <ul>
@@ -34,7 +34,7 @@ This file is required for the *Step 2*. You can create one yourself or try this 
     <li> Gene_length_extraction_from_GTF.ipynb  </li>
 </ul>
 The script is an adaptation from the https://www.reneshbedre.com/blog/expression_units.html who uses https://github.com/reneshbedre/bioinfokit library. <br>
-Note. Gene lengths are based on coding-gene features (CDS), if you wish to try another genetic-feature, g.e. exons, sRNA, etc., I encourage to do try it adjusting the required parameters in the gene-feature target. <br>
+Note. Gene lengths are based on coding-gene features (CDS), if you wish to try another genetic-feature, g.e. exons, sRNA, etc., I encourage to do try it adjusting the required parameters in the gene-feature target. <br><br>
 
 **Supplementary resource 3: Exploratory-Data-Analysis (EDA)** <br>
 Scripts to get information from metadata, clusters or simply explore preliminar results. <br>
@@ -51,12 +51,10 @@ Scripts to get information from metadata, clusters or simply explore preliminar 
 </ul>
 
 **Supplementary resource 4: clustering annotation** <br>
-Scripts to deal with the clusters & clustering annotation files queried in the DAVID platform website. <br>
+Scripts to deal with the clusters & clustering annotation files queried in the DAVID platform website. <br><br>
 *Makes logical comparissons to extract high differenciated clusters from the control grp* <br>
-<ul> 
-    <li> 6_modules_percentual_differentiation.ipynb </li>
-</ul>
-*Separate in individual clusters the clustering output files from DAVID* <br>
+<ul><li> 6_modules_percentual_differentiation.ipynb </li></ul> <br>
+*Separate into individual clusters the clustering output files from DAVID*<br><br>
 As we performed 4 runs, we have 1 file per run, RUN 0, 1, 3 y 6 <br>
 <ul> 
     <li> Annotation_DAVID_Clusters_Decomposition_RUN_0.ipynb  </li>
@@ -72,6 +70,6 @@ Scripts to plot & show the top clusters in a compact way. <br>
     <li> Annotation_Bubble_plot_for_DAVID_Clusters.ipynb (this is a bubble plot for the 4 runs)  </li>
     <li> Annotation_Venn_Diagram_for_DAVID_Clustering.ipynb (this is a Venn Diagram plot for the 4 runs)  </li>
 </ul> 
-
+<
 Good luck and success<br>
 Cynthia SC
