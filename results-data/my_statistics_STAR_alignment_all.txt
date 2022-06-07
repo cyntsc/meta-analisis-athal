@@ -8,13 +8,13 @@ SRR364389                        unique_mapped_reads	87.17%
 SRR364390                        unique_mapped_reads	87.29%
 SRR364398                        unique_mapped_reads	80.25%
 SRR364399                        unique_mapped_reads	80.25%
-SRR6283147                        unique_mapped_reads	32.35%
-SRR6283148                        unique_mapped_reads	29.50%
-SRR6283146                        unique_mapped_reads   36.48%
 SRR364391                        unique_mapped_reads    82.08%
 SRR364392                        unique_mapped_reads    82.25%
 SRR364400                        unique_mapped_reads    77.45%
 SRR364401                        unique_mapped_reads    77.40%
+SRR6283147                        unique_mapped_reads	32.35%
+SRR6283148                        unique_mapped_reads	29.50%
+SRR6283146                        unique_mapped_reads   36.48%
 SRR3383696                          average_mapped_length	92.61
 SRR3383697                          average_mapped_length	99.52
 SRR3383779                          average_mapped_length	90.83
@@ -25,13 +25,13 @@ SRR364389                          average_mapped_length	93.10
 SRR364390                          average_mapped_length	93.40
 SRR364398                          average_mapped_length	93.03
 SRR364399                          average_mapped_length	93.75
-SRR6283147                          average_mapped_length	117.57
-SRR6283148                          average_mapped_length	117.80
-SRR6283146                          average_mapped_length       117.41
 SRR364391                          average_mapped_length        92.82
 SRR364392                          average_mapped_length        93.11
 SRR364400                          average_mapped_length        92.66
 SRR364401                          average_mapped_length        93.41
+SRR6283147                          average_mapped_length	117.57
+SRR6283148                          average_mapped_length	117.80
+SRR6283146                          average_mapped_length       117.41
 SRR3383696                       number_splices	4122662
 SRR3383697                       number_splices	5506983
 SRR3383779                       number_splices	2898246
@@ -42,13 +42,13 @@ SRR364389                       number_splices	3096768
 SRR364390                       number_splices	3061432
 SRR364398                       number_splices	2669330
 SRR364399                       number_splices	2699085
-SRR6283147                       number_splices	2165577
-SRR6283148                       number_splices	1917626
-SRR6283146                       number_splices 2672410
 SRR364391                       number_splices  3043039
 SRR364392                       number_splices  3012355
 SRR364400                       number_splices  2585658
 SRR364401                       number_splices  2607322
+SRR6283147                       number_splices	2165577
+SRR6283148                       number_splices	1917626
+SRR6283146                       number_splices 2672410
 SRR3383696                      mismatch_rate_per_base	0.12%
 SRR3383697                      mismatch_rate_per_base	0.15%
 SRR3383779                      mismatch_rate_per_base	0.08%
@@ -59,13 +59,13 @@ SRR364389                      mismatch_rate_per_base	0.06%
 SRR364390                      mismatch_rate_per_base	0.06%
 SRR364398                      mismatch_rate_per_base	0.06%
 SRR364399                      mismatch_rate_per_base	0.06%
-SRR6283147                      mismatch_rate_per_base	0.17%
-SRR6283148                      mismatch_rate_per_base	0.18%
-SRR6283146                      mismatch_rate_per_base  0.17%
 SRR364391                      mismatch_rate_per_base   0.06%
 SRR364392                      mismatch_rate_per_base   0.06%
 SRR364400                      mismatch_rate_per_base   0.06%
 SRR364401                      mismatch_rate_per_base   0.06%
+SRR6283147                      mismatch_rate_per_base	0.17%
+SRR6283148                      mismatch_rate_per_base	0.18%
+SRR6283146                      mismatch_rate_per_base  0.17%
 SRR3383696                        deletion_average_length	1.37
 SRR3383697                        deletion_average_length	1.36
 SRR3383779                        deletion_average_length	1.35
@@ -76,13 +76,13 @@ SRR364389                        deletion_average_length	1.38
 SRR364390                        deletion_average_length	1.38
 SRR364398                        deletion_average_length	1.40
 SRR364399                        deletion_average_length	1.40
-SRR6283147                        deletion_average_length	1.43
-SRR6283148                        deletion_average_length	1.39
-SRR6283146                        deletion_average_length       1.42
 SRR364391                        deletion_average_length        1.39
 SRR364392                        deletion_average_length        1.38
 SRR364400                        deletion_average_length        1.38
 SRR364401                        deletion_average_length        1.39
+SRR6283147                        deletion_average_length	1.43
+SRR6283148                        deletion_average_length	1.39
+SRR6283146                        deletion_average_length       1.42
 SRR3383696                 reads_unmapped_too_short	0.24%
 SRR3383697                 reads_unmapped_too_short	0.38%
 SRR3383779                 reads_unmapped_too_short	4.98%
@@ -93,13 +93,13 @@ SRR364389                 reads_unmapped_too_short	11.17%
 SRR364390                 reads_unmapped_too_short	11.06%
 SRR364398                 reads_unmapped_too_short	16.39%
 SRR364399                 reads_unmapped_too_short	16.41%
-SRR6283147                 reads_unmapped_too_short	66.31%
-SRR6283148                 reads_unmapped_too_short	69.21%
-SRR6283146                 reads_unmapped_too_short     62.29%
 SRR364391                 reads_unmapped_too_short      16.37%
 SRR364392                 reads_unmapped_too_short      16.21%
 SRR364400                 reads_unmapped_too_short      21.03%
 SRR364401                 reads_unmapped_too_short      21.10%
+SRR6283147                 reads_unmapped_too_short	66.31%
+SRR6283148                 reads_unmapped_too_short	69.21%
+SRR6283146                 reads_unmapped_too_short     62.29%
 SRR3383640                        unique_mapped_reads	98.31%
 SRR3383641                        unique_mapped_reads	98.34%
 SRR3383782                        unique_mapped_reads	98.13%
@@ -148,15 +148,3 @@ SRR3383821                reads_unmapped_too_short	0.09%
 SRR3383822                reads_unmapped_too_short	0.08%
 SRR6283144                reads_unmapped_too_short	0.73%
 SRR6283145                reads_unmapped_too_short	0.15%
-
-
-
-
-
-
-
-
-
-
-
-
