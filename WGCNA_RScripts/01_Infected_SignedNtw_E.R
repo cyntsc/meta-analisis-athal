@@ -110,7 +110,7 @@ rownames(datTraits2) = datTraits2$ID
 datTraits2$ID = NULL                 ## Set ID sample column as index row
 table(rownames(datTraits2)==rownames(athalData3)) #should return TRUE if datasets align correctly, otherwise your names are out of order
 
-save(athalData3, datTraits, datTraits2, file="Athal_Infected_MatrixE.RData")    # FemaleLiver-01-dataInput.RData
+#save(athalData3, datTraits, datTraits2, file="Athal_Infected_MatrixE.RData")    # FemaleLiver-01-dataInput.RData
 #load("Athal_Infected_MatrixE.RData")
 
 ###########################################################################################################
@@ -168,7 +168,7 @@ softPower = 27; # all_infected NO Ss30 samples
 ###########################################################################
 
 #calclute the adjacency matrix
-adjacency= adjacency(athalData3,type = "signed",    #specify network type
+adjacency = adjacency(athalData3,type = "signed",    
                power = softPower);
 dim(adjacency)
 head(adjacency)
@@ -178,13 +178,13 @@ adjacency[1:100]
 
 ## translate the adjacency into topological overlap matrix and calculate the corresponding dissimilarity
 ## this action minimize the effects of noise and spurious associations
-TOM=TOMsimilarityFromExpr(adjacency,                         #athalData3
+TOM = TOMsimilarityFromExpr(adjacency,                         #athalData3
                           TOMType = "signed", 
                           power = softPower);
-dissTOM=1-TOM
+dissTOM = 1-TOM
 
-save(dissTOM, file="Athal_Infected_DissTOM_MatrixE.RData") 
-load("Athal_Infected_DissTOM_MatrixE.RData")
+#save(dissTOM, file="Athal_Infected_DissTOM_MatrixE.RData") 
+#load("Athal_Infected_DissTOM_MatrixE.RData")
 
 ###########################################################################
 ##
@@ -199,7 +199,9 @@ geneTree = hclust(as.dist(dissTOM), method="average")
 ## Plot the results
 sizeGrWindow(9, 12)
 #plot the resulting clustering tree (dendrogram)
-plot(geneTree, xlab="Gene clusters", main="Gene clustering on TOM−based dissimilarity for A.thaliana infected (Matrix E)", cex=0.3)   # sub="Signed-Ntw (average)" , labels= FALSE, hang=0.04
+plot(geneTree, xlab="Gene clusters", 
+     main="Gene clustering on TOM−based dissimilarity for A.thaliana infected (Matrix E)", 
+     cex=0.3)   # sub="Signed-Ntw (average)" , labels= FALSE, hang=0.04
 
 ###################################################################################
 ##
@@ -243,8 +245,8 @@ sizeGrWindow(8,6)
 plotDendroAndColors(geneTree, dynamicColors, "Dynamic Tree Cut",dendroLabels = FALSE, hang = 0.03,addGuide = TRUE, guideHang = 0.05,
                     main = "Gene dendrogram and module colors for Athal infected \n Matrix E")
 
-save(dynamicMods, dynamicColors, file="Athal_Infected_DynamicMods_MatrixE.RData")
-load("Athal_Infected_DynamicMods_MatrixE.RData")
+#save(dynamicMods, dynamicColors, file="Athal_Infected_DynamicMods_MatrixE.RData")
+#load("Athal_Infected_DynamicMods_MatrixE.RData")
 
 ##################################################################################################
 #
@@ -270,7 +272,7 @@ TOMplot(dissTOM,
 ##################################################################################################
 
 # Calculate eigengenes
-MEList= moduleEigengenes(athalData3, colors= dynamicColors,
+MEList = moduleEigengenes(athalData3, colors= dynamicColors,
                          excludeGrey = TRUE,
                          softPower = softPower)
 MEs = MEList$eigengenes                         ## Here are the ME tables by color module
@@ -280,8 +282,9 @@ MEs = MEList$eigengenes                         ## Here are the ME tables by col
 # Calculate dissimilarity of module eigengenes
 MEDiss = 1-cor(MEs)          
 # Cluster module eigengenes
-METree = hclust(as.dist(MEDiss),method= "average")
-save(MEs, MEDiss, METree, file= "Athal_Infected_Module_Identification_MatrixE.RData")
+METree = hclust(as.dist(MEDiss),
+                method= "average")
+#save(MEs, MEDiss, METree, file= "Athal_Infected_Module_Identification_MatrixE.RData")
 #load("Athal_Infected_Module_Identification_MatrixE.RData")
 
 # Clustering of module eigengenes
@@ -291,7 +294,9 @@ sizeGrWindow(6,14)
 plot(METree, main= "Clustering of module eigengenes for A.thaliana infected (Matrix E)", 
      xlab= "Module Eigengenes", 
      ylab = "", sub= "",
-     cex.main = 1, cex.lab = 1, cex.axis = 1)
+     cex.main = 1, cex.lab = 1, cex.axis = 1,
+     cex = 0.3
+     )
      
 ##########################################################################################
 ##
@@ -440,16 +445,4 @@ labeledHeatmap(Matrix= moduleTraitCor2,
                cex.text= 0.6,
                zlim= c(-1,1),
                main= paste("Module-trait by h.p.i"))
-
-
-
-
-###################################################################################################
-##
-##                 Relating modules to external information and identifying important genes   
-##                                   Gene Significance (GS) and ModuleMembership (MM)
-##                 Important Note: 
-##                                  Chunck below is just an example
-##                                  go to the file GeneSignificance_ModuleMembership.R to see more details 
-###################################################################################################
 
