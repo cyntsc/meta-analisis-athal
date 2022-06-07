@@ -1,15 +1,17 @@
-<h2> These python scripts are the source code for building an expression array for clustering from scratch. The raw-count files, produced with HTSeq-count or its equivalent in salmon, must be ready. The expression matrix is composed of 4 sequential steps where a standardized log2 matrix (TPM+1) is produced as a final product. </h2>
-These scripts are complementary to my thesis work and will be totally free after publication. <br>
-If you find some of them useful, feel free to use them, just please give proper credits like:
-<br> Cynthia-Cardinault (2022) <br><br>
-Good luck and success<br>
-Cynthia SC<br><br>
+<h3> Scripts for building an expression array for clustering from scratch.</h3>
+1. The process to build the expression matrix is composed of 4 sequential steps where a standardized log2 matrix (TPM+1) is produced as a final product. <br>
+2. The raw-count files to integrate the expression array must be ready and available before to try this pipeline.<br>
+3. The raw-count used here were produced with the HTSeq-count tool from bulk RNASeq libraries. <br> <br>
 
-**Next files must be run sequentially:**
-1_Step1_integrating_raw_counts.ipynb <br>
-2_Step2_TPM_normalization.ipynb<br>
-3_Step3_TPM_standardization.ipynb<br>
-4_Step4_Log2_scale.ipynb<br>
+These scripts are complementary to my thesis work and will be totally free after publication. <br>
+If you find some of them useful, feel free to try them, just please give proper credits like:
+<br> Cynthia-Cardinault (2022) <br><br>
+
+**Files must be run sequentially:**
+    1_Step1_integrating_raw_counts.ipynb <br>
+    2_Step2_TPM_normalization.ipynb<br>
+    3_Step3_TPM_standardization.ipynb<br>
+    4_Step4_Log2_scale.ipynb<br>
 
 *Descriptions and instructions are provided in each file*
 
@@ -55,3 +57,6 @@ Scripts to plot & show the top clusters in a compact way. <br>
 A. Annotation_DAVID_Clusters_Decomposition_Top15Genes.ipynb (this is a lm() model) <br>
 B. Annotation_Bubble_plot_for_DAVID_Clusters.ipynb (this is a bubble plot for the 4 runs) <br>
 C. Annotation_Venn_Diagram_for_DAVID_Clustering.ipynb (this is a Venn Diagram plot for the 4 runs)
+
+Good luck and success<br>
+Cynthia SC<br><br>
