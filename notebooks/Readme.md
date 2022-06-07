@@ -11,38 +11,47 @@ Cynthia SC<br><br>
 3_Step3_TPM_standardization.ipynb<br>
 4_Step4_Log2_scale.ipynb<br>
 
-*Description and instructions are provided in each step*
+*Descriptions and instructions are provided in each file*
 
 ___________________________________________________________________________________________________________________
 
+### SUPLEMENTARY MATERIAL
 
-**Supplementary resource 1:** <br>
-This file extracts the coverage percentage of the alignments generated with STAR and plots them in a bar plot.<br>
-0_percentual_alignments_statistics.ipynb <br>
+**Supplementary resource 1: extract the coverage percentage** <br>
+Script to extract and plot the coverage percentage stats from the alignment's files --gotten with STAR. <br>
+A. 0_percentual_alignments_statistics.ipynb <br>
 
-**Supplementary resource 2:** <br>
-These files were used for testing additional assays or explore the additional information. Feel free to try some of them. <br>
-5_preliminar_dataset_correlations.ipynb
-6_modules_percentual_differentiation.ipynb
+**Supplementary resource 2: build gene length file** <br>
+This file is required for the *Step 2*. You can create one yourself or try this script which extracts the gene lenghts from the corresponding GTF file. Some tweaking may be required.<br>
+A. Gene_length_extraction_from_GTF.ipynb  <br>
+The script is an adaptation from the https://www.reneshbedre.com/blog/expression_units.html who uses https://github.com/reneshbedre/bioinfokit library. <br>
+Note. Gene lengths are based on coding-gene features (CDS), if you wish to try another genetic-feature, g.e. exons, sRNA, etc., I encourage to do try it adjusting the required parameters in the gene-feature target. <br>
 
-**Supplementary resource 3:** <br>
-These files were used for deal with the clustering annotations recovered with the DAVID Tool. Feel free to try some of them. <br>
+**Supplementary resource 3: Exploratory-Data-Analysis (EDA)** <br>
+Scripts to get information from metadata, clusters or simply explore preliminar results. <br>
+A. Venn_diagram_genes_in_ceros.ipynb (build a Venn diagram to show the relationship between genes at zeros in 2 data sets) <br>
+B. Venn_HighTPMs.ipynb (build a histogram & a venn diagram to show the relation between high TPM values in 2 datasets) <br>
+C. Annotation_traking_gene_data.ipynb (get stats about gene-features in a meta-data file) <br>
+D. Matrix_Healthy_Exploratory_HTMLrpt.ipynb (Use sweetviz library to get a dynamic HTML file for a fast EDA (df)) <br>
+E. Matrix_Infected_Exploratory_HTMLrpt.ipynb (Use sweetviz library to get a dynamic HTML file for a fast EDA (df)) <br>
+F. 5_preliminar_dataset_correlations.ipynb (build a coexpresion matrix for a fast overview) <br>
+G. EDA_Genes_by_GO_Biological_Term.ipynb (plot a dataset (gene-cluster) based on GO-Terms) <br>
+H. EDA_Genes_by_GO_Component_Term.ipynb (plot a dataset (gene-cluster) based on GO-Terms) <br>
+G. Merge_two_datasets.ipynb (merge 2 datasets in one based on the gene-ID) <br>
+
+**Supplementary resource 4: clustering annotation** <br>
+Scripts to deal with the clusters & clustering annotation files queried in the DAVID platform website. <br>
+*Makes logical comparissons to extract high differenciated clusters from the control grp* <br>
+A. 6_modules_percentual_differentiation.ipynb <br>
+*Separate in individual clusters the clustering output files from DAVID* <br>
 As we performed 4 runs, we have 1 file per run, RUN 0, 1, 3 y 6 <br>
-Annotation_DAVID_Clusters_Decomposition_RUN_0.ipynb <br>
-Annotation_DAVID_Clusters_Decomposition_RUN_1.ipynb <br>
-Annotation_DAVID_Clusters_Decomposition_RUN_3.ipynb <br>
-Annotation_DAVID_Clusters_Decomposition_RUN_6.ipynb <br>
+A. Annotation_DAVID_Clusters_Decomposition_RUN_0.ipynb <br>
+B. Annotation_DAVID_Clusters_Decomposition_RUN_1.ipynb <br>
+C. Annotation_DAVID_Clusters_Decomposition_RUN_3.ipynb <br>
+D. Annotation_DAVID_Clusters_Decomposition_RUN_6.ipynb <br>
 
-**Supplementary resource 4:** <br>
-There files were used for the visualization tasks (plots) to show the results in a compact way <br>
-Annotation_DAVID_Clusters_Decomposition_Top15Genes.ipynb (this is a lm() model <br>
-Annotation_Bubble_plot_for_DAVID_Clusters.ipynb (this is a bubble plot for the 4 runs <br>
-Annotation_Venn_Diagram_for_DAVID_Clustering.ipynb (this is a Venn Diagram plot for the 4 runs <br>
-
-**Supplementary resource 5:** <br>
-These file is necessary for run the *Step 2* if you do not have a Gene lenght file.
-Gene_length_extraction_from_GTF.ipynb <br>
-Create a file with ID-Genes and lenghts from a GTF file <br>
-For those concerned with converting raw counts from an expression array to TMP counts for any purpose. These scripts are an adaptation from the https://www.reneshbedre.com/blog/expression_units.html who uses https://github.com/reneshbedre/bioinfokit library. <br>
-Note. Gene lengths are based on coding-gene features (CDS), if you wish a more complex approach like average exons or some-like, I encourage to do the necessary changes. <br>
-
+**Supplementary resource 5: categorical plots and lm for top genes** <br>
+Scripts to plot & show the top clusters in a compact way. <br>
+A. Annotation_DAVID_Clusters_Decomposition_Top15Genes.ipynb (this is a lm() model) <br>
+B. Annotation_Bubble_plot_for_DAVID_Clusters.ipynb (this is a bubble plot for the 4 runs) <br>
+C. Annotation_Venn_Diagram_for_DAVID_Clustering.ipynb (this is a Venn Diagram plot for the 4 runs)
