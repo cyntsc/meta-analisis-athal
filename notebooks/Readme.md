@@ -7,12 +7,13 @@ These scripts are complementary to my thesis work and will be totally free after
 If you find some of them useful, feel free to try them, just please give proper credits like:
 <br> Cynthia-Cardinault (2022) <br><br>
 
-**Files must be run sequentially:**
-    1_Step1_integrating_raw_counts.ipynb <br>
-    2_Step2_TPM_normalization.ipynb<br>
-    3_Step3_TPM_standardization.ipynb<br>
-    4_Step4_Log2_scale.ipynb<br>
-
+<h3>Python scripts to build an expression array for clustering</h3>
+<ol>
+    <li>1_Step1_integrating_raw_counts.ipynb </li>
+    <li>2_Step2_TPM_normalization.ipynb<br> </li>
+    <li>3_Step3_TPM_standardization.ipynb<br> </li>
+    <li>4_Step4_Log2_scale.ipynb<br> </li>
+</ol>
 *Descriptions and instructions are provided in each file*
 
 ___________________________________________________________________________________________________________________
@@ -23,7 +24,7 @@ ________________________________________________________________________________
 Script to extract and plot the coverage percentage stats from the alignment's files --gotten with STAR. <br>
 A. 0_percentual_alignments_statistics.ipynb <br>
 
-**Supplementary resource 2: build gene length file** <br>
+**Supplementary resource 2: build a gene length file** <br>
 This file is required for the *Step 2*. You can create one yourself or try this script which extracts the gene lenghts from the corresponding GTF file. Some tweaking may be required.<br>
 A. Gene_length_extraction_from_GTF.ipynb  <br>
 The script is an adaptation from the https://www.reneshbedre.com/blog/expression_units.html who uses https://github.com/reneshbedre/bioinfokit library. <br>
@@ -56,7 +57,7 @@ D. Annotation_DAVID_Clusters_Decomposition_RUN_6.ipynb <br>
 Scripts to plot & show the top clusters in a compact way. <br>
 A. Annotation_DAVID_Clusters_Decomposition_Top15Genes.ipynb (this is a lm() model) <br>
 B. Annotation_Bubble_plot_for_DAVID_Clusters.ipynb (this is a bubble plot for the 4 runs) <br>
-C. Annotation_Venn_Diagram_for_DAVID_Clustering.ipynb (this is a Venn Diagram plot for the 4 runs)
+C. Annotation_Venn_Diagram_for_DAVID_Clustering.ipynb (this is a Venn Diagram plot for the 4 runs) <br>
 
 Good luck and success<br>
 Cynthia SC<br><br>
