@@ -45,7 +45,7 @@ here::here();     # Top level dir: /data/run/cyntsc/Project_athal_wgcna
 
 ## Allow multi-treads and setting this in the bash environ
 allowWGCNAThreads();
-ALLOW_WGCNA_THREADS=30;
+ALLOW_WGCNA_THREADS=8;
 ## Initial variables 
 options(stringsAsFactors = FALSE);
 enableWGCNAThreads();
@@ -106,10 +106,10 @@ dim(datTraits2)
 ## form a data frame analogous to expression data that will hold the infection traits.
 rownames(datTraits2) = datTraits2$ID
 datTraits2$ID = NULL                 ## Set ID sample column as index row
-table(rownames(datTraits2)==rownames(athalDataHealthy)) #should return TRUE if datasets align correctly, otherwise your names are out of order
+table(rownames(datTraits2) == rownames(athalDataHealthy)) #should return TRUE if datasets align correctly, otherwise your names are out of order
 
-save(athalDataHealthy, datTraits, file="Athal_Healthy_D_SamplesAndTraits.RData")
-load("Athal_Healthy_D_SamplesAndTraits.RData")
+save(athalDataHealthy, datTraits, datTraits2, file="Athal_Healthy_MatrixD.RData")
+#load("Athal_Healthy_MatrixD.RData")
 
 ###########################################################################################################
 #
@@ -173,17 +173,17 @@ adjacency= adjacency(athalDataHealthy,type = "signed",    #specify network type
                      power = softPower);
 head(adjacency)
 dim(adjacency)
-adj[1:20]
+#adjacency[1:20]
 
 ## translate the adjacency into topological overlap matrix and calculate the corresponding dissimilarity
 ## this action minimize the effects of noise and spurious associations
-TOM=TOMsimilarityFromExpr(adjacency,                         #athalDataHealthy
+TOM = TOMsimilarityFromExpr(adjacency,                         #athalDataHealthy
                           TOMType = "signed", 
                           power = softPower);
-dissTOM=1-TOM
+dissTOM = 1 - TOM
 
 save(dissTOM, file="Athal_Healthy_DissTOM_MatrixD.RData")
-load("Athal_Healthy_DissTOM_MatrixD.RData")
+#load("Athal_Healthy_DissTOM_MatrixD.RData")
 
 
 ###########################################################################
@@ -308,7 +308,7 @@ MEs = mergedMEs
 
 save(MEs, moduleLabels, moduleColors, geneTree, file= "Athal_Healthy_MergedMods_MatrixD.RData")
 #load("Athal_Healthy_MergedMods_MatrixD.RData")
-
+       
 ## Write modules no merged in the path location
 length(dynamicColors)
 module_colors = setdiff(unique(dynamicColors), "grey")    ## exclude the grey module reserved for not assigned genes

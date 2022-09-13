@@ -57,7 +57,7 @@ labeledHeatmap(Matrix= moduleTraitCor2,
 ##                     Intramodular analysis: identifying genes with high GS and MM
 ##
 ##                 Relating modules to external information and identifying importantgenes   
-##                            Gene Significance (GS) and ModuleMembership (MM)
+##                            Gene Significance (GS) and Module Membership (MM)
 ##                      ANALYSIS FOCUSED IN THE SAMPLES for COLLETROTRICHUM A LAS 22 HPI
 ##
 ###################################################################################################
