@@ -4,13 +4,20 @@
 ###
 ### Made by: Cynthia Soto 
 ### Date: Feb 18, 2022
-### Latest update: xxxx
+### Latest update: May 12, 2022
 ###
 ### This is a PhD project associated at CICY Mx with the technical support (HPC) of 
 ###                                     Dr.Childs Lab at MSU.
 ###
+###   1) Display the correlation values within a heatmap plot 
+###   2) Intramodular analysis: identifying genes with high GS and MM 
+###      a) create a linear regression model using R’s lm() 
+###      b) high intramodular connectivity ~ high kwithin
+###   3) Merge the statistical information of a module with gene annotation and output the summary to a file
+#################################################################################################
 
-# BASE CONFIGURATION ##############################################################################
+
+# BASE CONFIGURATION ############################################################################
 
 # Display the current working directory
 getwd();
@@ -35,10 +42,11 @@ lnames = load(file = "Athal_Infected_Module_Identification_MatrixE.RData");
 # Load de module information
 lnames = load(file = "Athal_Infected_MergedMods_MatrixE.RData");
 
+##############     Quantifying module–trait associations     ##############     
+
+
 nGenes = ncol(athalData3);
 nSamples = nrow(athalData3);
-
-##############     Quantifying module–trait associations     ##############     
 
 # Recalculate MEs with color labels
 MEs0 = moduleEigengenes(athalData3, moduleColors)$eigengenes
@@ -51,7 +59,7 @@ moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)
 #par(mar = c(6, 8.5, 3, 3));
 
 sizeGrWindow(9, 12)
-par(mar= c(3, 10, 2, 1))    # margen inferior - y(izq) + margen superior - y(der)
+par(mar= c(3.5, 10, 2, 1))    # margen inferior - y(izq) + margen superior - y(der)
 
 # Will display correlations and their p-values
 textMatrix = paste(signif(moduleTraitCor, 2), " (",
@@ -76,51 +84,109 @@ labeledHeatmap(Matrix = moduleTraitCor,
 ##
 ##                 Relating modules to external information and identifying importantgenes   
 ##                            Gene Significance (GS) and ModuleMembership (MM)
-##                      ANALYSIS FOCUSED IN THE SAMPLES for BOTRYTIS CINEREA A LAS 24 HPI
+##                      ANALYSIS FOCUSED IN ARABIDOPSIS WITH BOTRYTIS CINEREA A LAS 24 HPI
 ##
 ###################################################################################################
+
+# bit refreser of the fit summary report:
+# Call: This is an R feature that shows what function and parameters were used to create the model.
+# Residuals: Difference between what the model predicted and the actual value of y.  
+# You can calculate the Residuals section like so: summary(y-fit$fitted.values)
+# Coefficients: These are the weights that minimize the sum of the square of the errors. 
+# Residual std error: std.dev is the square root of variance.  Standard Error func in R is very similar. 
+# Multiple R-Squared: Also called the coefficient of determination, this is an oft-cited measurement of how well your model fits to the data.
+#                     it’s a quick and pre-computed check for your model.
+# Adjusted R-Squared normalizes Multiple R-Squared by taking into account how many samples you have and how many variables you’re using.
+# F-Statistics: this is the second “test” that the summary function produces for lm models.  The F-Statistic is a “global” test that checks if at least one of your coefficients are nonzero.
+# More details: https://www.learnbymarketing.com/tutorials/explaining-the-lm-summary-in-r/ 
 
 # Define variable Bc_24 containing the Bc_24 column of datTrait2
 Bc_24 = as.data.frame(datTraits2$B_24hpi);
 names(Bc_24) = "Bc_24hpi"
 # names (colors) of the modules
 modNames = substring(names(MEs), 3)
-geneModuleMembership = as.data.frame(cor(athalData3, MEs, use = "p"));
+
+geneModuleMembership = as.data.frame(cor(athalData3, MEs, use = "p"));                  # module membership MM is the correlation of the module eigengene and the gene expression profile.
 MMPvalue = as.data.frame(corPvalueStudent(as.matrix(geneModuleMembership), nSamples));
 names(geneModuleMembership) = paste("MM", modNames, sep="");
 names(MMPvalue) = paste("p.MM", modNames, sep="");
-geneTraitSignificance = as.data.frame(cor(athalData3, Bc_24, use = "p"));
+
+geneTraitSignificance = as.data.frame(cor(athalData3, Bc_24, use = "p"));               # Gene Significance GS is the absolute value of the correlation between the gene and the trait.
 GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSamples));
 names(geneTraitSignificance) = paste("GS.", names(Bc_24), sep="");
 names(GSPvalue) = paste("p.GS.", names(Bc_24), sep="");
 
 ##############  Intramodular analysis: identifying genes with high GS and MM  ##############
 
-####    High correlated
+####    Positive correlated
 module = "chocolate"
 module = "lavender"
 module = "mistyrose3"
 module = "firebrick2"
 
-####   Down correlated
-module ="darkolivegreen2"
+####   Negative correlated
 module = "indianred"
 module = "coral4"
 module = "green"
 
-####   Consens module
+####   Consensus module
 module ="darkmagenta"
 
 column = match(module, modNames);
 moduleGenes = moduleColors==module;
+
+# sizeGrWindow(7, 7);
+# par(mfrow = c(1,1));
+# verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
+#                    abs(geneTraitSignificance[moduleGenes, 1]),
+#                    xlab = paste("Module Membership in", module, "module"),
+#                    ylab = "Gene significance for body Bc_24",
+#                    main = paste("Module membership vs. gene significance\n"),
+#                    cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module);
+
+#Intramodular analysis: identifying genes with high GS and MM
 sizeGrWindow(7, 7);
 par(mfrow = c(1,1));
-verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
-                   abs(geneTraitSignificance[moduleGenes, 1]),
-                   xlab = paste("Module Membership in", module, "module"),
-                   ylab = "Gene significance for body Bc_24",
-                   main = paste("Module membership vs. gene significance\n"),
-                   cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module)
+x <- abs(geneModuleMembership[moduleGenes, column])
+y <- abs(geneTraitSignificance[moduleGenes, 1])
+limit <- range(c(x,y)) 
+r <- round(cor(x,y),2)
+plot(    x, 
+         y, 
+         #ylim =range(min(y),1), xlim =range(min(x),1), 
+         ylim =range(0,1), xlim =range(0,1), 
+         xlab =paste("Module Membership in", module, "module"), 
+         ylab ="Gene significance for Bc24", col = module)
+
+# create a linear regression model using R’s lm() function and we’ll get the summary output using the summary() function.
+fit <-lm(y~x)
+summary(fit)
+pintra = round(summary(fit)$coefficients[,4][[2]], digits=5) #p-value  
+abline(fit, col='blue')
+legend('topleft', col = "blue", lty = 1, box.lty = 1 ,legend = 'regression line', cex= 0.8) 
+mtext(paste('correlation = ', r, ",", "P-value = ", pintra))
+title(paste("Module membership vs. gene significance\n"))
+# text(y~x, 
+#      labels = rownames(athalData3)[moduleColors==module], 
+#      data = athalData3, cex=0.8, font=4, pos = 2) #add label
+
+
+# identifying genes with high GS and MM
+intra_modular_analysis = data.frame(abs(geneModuleMembership[moduleGenes, column]), abs(geneTraitSignificance[moduleGenes, 1]))
+rownames(intra_modular_analysis) = colnames(athalData3)[moduleColors==module] #only the x module
+#View(intra_modular_analysis)
+intra_modular_analysis[1:15,]
+
+# high intramodular connectivity ~ high kwithin => hub genes (kwithin: connectivity of the each driver gene in the x module to all other genes in the x module)
+connectivity = intramodularConnectivity(adjacency, moduleColors)
+connectivity = connectivity[colnames(athalData3)[moduleColors==module],] #only the x module
+order.kWithin = order(connectivity$kWithin, decreasing = TRUE)
+connectivity = connectivity[order.kWithin,] #order rows following kWithin
+dim(connectivity)
+#View(connectivity)
+top_connectivity = connectivity[1:15,] #top 5 genes that have a high connectivity to other genes in the x module
+#View(top_connectivity)
+top_connectivity = connectivity[380:386,] #top 5 genes that have a high connectivity to other genes in the x module
 
 
 ###################################################################################################
@@ -128,7 +194,7 @@ verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
 ##
 ##                 Relating modules to external information and identifying importantgenes   
 ##                            Gene Significance (GS) and ModuleMembership (MM)
-##                      ANALYSIS FOCUSED IN THE SAMPLES for COLLETROTRICHUM A LAS 22 HPI
+##                      ANALYSIS FOCUSED IN ARABIDOPSIS WITH COLLETOTRICHUM A LAS 22 HPI
 ##
 ###################################################################################################
 
@@ -152,6 +218,11 @@ names(GSPvalue) = paste("p.GS.", names(Ch_22), sep="");
 module = "chocolate2"
 module = "mediumpurple1"
 module = "lightsteelblue"
+module = "tan3"
+module = "brown2"
+
+####    Down correlated
+module = "coral4"
 
 ####   aNTAGONIC
 module = "indianred"
@@ -162,14 +233,53 @@ module ="darkmagenta"
 
 column = match(module, modNames);
 moduleGenes = moduleColors==module;
+
+#Intramodular analysis: identifying genes with high GS and MM
 sizeGrWindow(7, 7);
 par(mfrow = c(1,1));
-verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
-                   abs(geneTraitSignificance[moduleGenes, 1]),
-                   xlab = paste("Module Membership in", module, "module"),
-                   ylab = "Gene significance for body Ch_22",
-                   main = paste("Module membership vs. gene significance\n"),
-                   cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module)
+x <- abs(geneModuleMembership[moduleGenes, column])
+y <- abs(geneTraitSignificance[moduleGenes, 1])
+
+#limit <- range(c(x,y)) 
+r <- round(cor(x,y),2)
+plot(    x, 
+         y, 
+         ylim =range(min(y),1), xlim =range(min(x), 1), 
+         #ylim =range(0,1), xlim =range(0.5,1), 
+         xlab =paste("Module Membership in", module, "module"), 
+         ylab ="Gene significance for Ch22", col = module)
+
+# create a linear regression model using R’s lm() function and we’ll get the summary output using the summary() function.
+fit <-lm(y~x)
+summary(fit)
+# bit refreser:https://www.learnbymarketing.com/tutorials/explaining-the-lm-summary-in-r/ 
+
+pintra = round(summary(fit)$coefficients[,4][[2]], digits=5) #p-value  
+abline(fit, col='blue')
+legend('topleft', col = "blue", lty = 1, box.lty = 1 ,legend = 'regression line', cex= 0.8) 
+mtext(paste('correlation = ', r, ",", "P-value = ", pintra))
+title(paste("Module membership vs. gene significance\n"))
+# text(y~x, 
+#      labels = rownames(athalData3)[moduleColors==module], 
+#      data = athalData3, cex=0.8, font=4, pos = 2) #add label
+
+
+# identifying genes with high GS and MM
+intra_modular_analysis = data.frame(abs(geneModuleMembership[moduleGenes, column]), abs(geneTraitSignificance[moduleGenes, 1]))
+rownames(intra_modular_analysis) = colnames(athalData3)[moduleColors==module] #only the x module
+#View(intra_modular_analysis)
+intra_modular_analysis[1:15,]
+
+# high intramodular connectivity ~ high kwithin => hub genes (kwithin: connectivity of the each driver gene in the x module to all other genes in the x module)
+connectivity = intramodularConnectivity(adjacency, moduleColors)
+connectivity = connectivity[colnames(athalData3)[moduleColors==module],] #only the x module
+order.kWithin = order(connectivity$kWithin, decreasing = TRUE)
+connectivity = connectivity[order.kWithin,] #order rows following kWithin
+dim(connectivity)
+#View(connectivity)
+top_connectivity = connectivity[1:15,] #top 5 genes that have a high connectivity to other genes in the x module
+#View(top_connectivity)
+top_connectivity = connectivity[380:386,] #top 5 genes that have a high connectivity to other genes in the x module
 
 
 ############  Summary output of network analysis results   #############

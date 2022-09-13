@@ -56,6 +56,7 @@ TOMplot(plotTOM, geneTree, moduleColors, main = "Arabidopsis infected Ntw Heatma
 # Recalculate module eigengenes
 MEs = moduleEigengenes(athalData3, moduleColors)$eigengenes
 # Isolate B24 or Ch22 from the clinical traits
+
 ##################  First B24  ##################
 Trait = as.data.frame(datTraits2$B_24hpi);
 names(Trait) = "Bc_24"
@@ -87,3 +88,4 @@ plotEigengeneNetworks(MET, paste("Eigengene dendrogram for ", hm_title), marDend
 par(cex = 1.0)
 plotEigengeneNetworks(MET, paste("Eigengene adjacency heatmap for ", hm_title), marHeatmap = c(9,5,2,1),
                       xLabels = names(MEs), plotDendrograms = FALSE,  xLabelsAngle = 90)
+
