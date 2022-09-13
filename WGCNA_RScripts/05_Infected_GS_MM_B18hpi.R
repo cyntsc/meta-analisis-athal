@@ -1,0 +1,158 @@
+#################################################################################################
+###
+### Goal: Analysis of Gene Significance (GS) and Module Membership (MM) for Bc24hpi Y Ch22hpi
+###
+### Made by: Cynthia Soto 
+### Date: Aug 16, 2022
+### Latest update: xxxx
+###
+### This is a PhD project associated at CICY Mx with the technical support (HPC) of 
+###                                     Dr.Childs Lab at MSU.
+###
+###   1) Display the correlation values within a heatmap plot 
+###   2) Intramodular analysis: identifying genes with high GS and MM 
+###      a) create a linear regression model using R’s lm() 
+###   3) Merge the statistical information of a module with gene annotation and output the summary to a file
+#################################################################################################
+
+
+# BASE CONFIGURATION ############################################################################
+
+# Display the current working directory
+getwd();
+# If necessary, change the path below to the directory where the data files are stored.
+# "." means current directory. On Windows use a forward slash / instead of the usual \.
+workingDir = ".";
+setwd(workingDir);
+# Clear object lists
+rm(list = ls());
+
+# Load the WGCNA package
+library(WGCNA)
+# The following setting is important, do not omit.
+options(stringsAsFactors = FALSE);
+library(here);    ## allows you to set the top level of your project folder as “here” and to specify where things live relative to that location   
+here::here();     # Top level dir: /data/run/cyntsc/Project_athal_wgcna
+
+# Load the expression data and trait data saved in the first part
+lnames = load(file = "Athal_Infected_MatrixE.RData");                  
+# Load network data saved in the second part.
+lnames = load(file = "Athal_Infected_Module_Identification_MatrixE.RData");   
+# Load de module information
+lnames = load(file = "Athal_Infected_MergedMods_MatrixE.RData");
+
+##############     Quantifying module–trait associations     ##############     
+
+
+nGenes = ncol(athalData3);
+nSamples = nrow(athalData3);
+
+# Recalculate MEs with color labels
+MEs0 = moduleEigengenes(athalData3, moduleColors)$eigengenes
+MEs = orderMEs(MEs0)
+moduleTraitCor = cor(MEs, datTraits2, use = "p");
+moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)
+
+## suitable representation in a heatmap
+#sizeGrWindow(10,6)
+#par(mar = c(6, 8.5, 3, 3));
+
+sizeGrWindow(9, 12)
+par(mar= c(3.5, 10, 2, 1))    # margen inferior - y(izq) + margen superior - y(der)
+
+# Will display correlations and their p-values
+textMatrix = paste(signif(moduleTraitCor, 2), " (",
+                   signif(moduleTraitPvalue, 1), ")", sep = "");
+dim(textMatrix) = dim(moduleTraitCor)
+# Display the correlation values within a heatmap plot
+labeledHeatmap(Matrix = moduleTraitCor,
+               xLabels = names(datTraits2),
+               yLabels = names(MEs),
+               ySymbols = names(MEs),
+               colorLabels = FALSE,
+               colors = blueWhiteRed(50),   # greenWhiteRed
+               textMatrix = textMatrix,
+               setStdMargins = FALSE,
+               cex.text = 0.5,
+               zlim = c(-1,1),
+               main = paste("Module-trait by fungi and hpi"))
+
+
+###################################################################################################
+##                     Intramodular analysis: identifying genes with high GS and MM
+##
+##                 Relating modules to external information and identifying importantgenes   
+##                            Gene Significance (GS) and ModuleMembership (MM)
+##                      ANALYSIS FOCUSED IN ARABIDOPSIS WITH BOTRYTIS CINEREA A LAS 18 HPI
+##
+###################################################################################################
+
+# bit refreser of the fit summary report:
+# Call: This is an R feature that shows what function and parameters were used to create the model.
+# Residuals: Difference between what the model predicted and the actual value of y.  
+# You can calculate the Residuals section like so: summary(y-fit$fitted.values)
+# Coefficients: These are the weights that minimize the sum of the square of the errors. 
+# Residual std error: std.dev is the square root of variance.  Standard Error func in R is very similar. 
+# Multiple R-Squared: Also called the coefficient of determination, this is an oft-cited measurement of how well your model fits to the data.
+#                     it’s a quick and pre-computed check for your model.
+# Adjusted R-Squared normalizes Multiple R-Squared by taking into account how many samples you have and how many variables you’re using.
+# F-Statistics: this is the second “test” that the summary function produces for lm models.  The F-Statistic is a “global” test that checks if at least one of your coefficients are nonzero.
+# More details: https://www.learnbymarketing.com/tutorials/explaining-the-lm-summary-in-r/ 
+
+# Define variable Bc_18 containing the Bc_18 column of datTrait2
+Bc_18 = as.data.frame(datTraits2$B_18hpi);
+names(Bc_18) = "Bc_18hpi"
+# names (colors) of the modules
+modNames = substring(names(MEs), 3)
+
+geneModuleMembership = as.data.frame(cor(athalData3, MEs, use = "p"));                  # module membership MM is the correlation of the module eigengene and the gene expression profile.
+MMPvalue = as.data.frame(corPvalueStudent(as.matrix(geneModuleMembership), nSamples));
+names(geneModuleMembership) = paste("MM", modNames, sep="");
+names(MMPvalue) = paste("p.MM", modNames, sep="");
+
+geneTraitSignificance = as.data.frame(cor(athalData3, Bc_18, use = "p"));               # Gene Significance GS is the absolute value of the correlation between the gene and the trait.
+GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSamples));
+names(geneTraitSignificance) = paste("GS.", names(Bc_18), sep="");
+names(GSPvalue) = paste("p.GS.", names(Bc_18), sep="");
+
+##############  Intramodular analysis: identifying genes with high GS and MM  ##############
+modNames
+####   Negative correlated
+module = "deepskyblue"
+
+column = match(module, modNames);
+moduleGenes = moduleColors == module;
+
+#Intramodular analysis: identifying genes with high GS and MM
+sizeGrWindow(7, 7);
+par(mfrow = c(1,1));
+x <- abs(geneModuleMembership[moduleGenes, column])
+y <- abs(geneTraitSignificance[moduleGenes, 1])
+limit <- range(c(x,y)) 
+r <- round(cor(x,y),2)
+plot(    x, 
+         y, 
+         #ylim =range(min(y),1), xlim =range(min(x),1), 
+         ylim =range(0,1), xlim =range(0,1), 
+         xlab =paste("Module Membership in", module), 
+         ylab ="Gene significance for Bc18", col = module)
+
+# create a linear regression model using R’s lm() function and we’ll get the summary output using the summary() function.
+fit <-lm(y~x)
+summary(fit)
+pintra = round(summary(fit)$coefficients[,4][[2]], digits=5) #p-value  
+abline(fit, col='blue')
+legend('topleft', col = "blue", lty = 1, box.lty = 1 ,legend = 'regression line', cex= 0.8) 
+#mtext(paste('correlation = ', r, ",", "P-value = ", pintra))
+mtext(paste("P-value = ", pintra))
+title(paste("Module membership and Gene significance\n"))
+
+# identifying top15 genes with high GS and MM
+intra_modular_analysis = data.frame(abs(geneModuleMembership[moduleGenes, column]), abs(geneTraitSignificance[moduleGenes, 1]))
+rownames(intra_modular_analysis) = colnames(athalData3)[moduleColors==module] #only the x module
+#View(intra_modular_analysis)
+top15_genes = intra_modular_analysis[1:15,]
+
+file_name = paste("../results-data/All_Top15_GS_GO_TAIR_Annotations/B18", module, "GS_MM_genes_low.csv", sep = "_");
+write.csv(top15_genes, file = file_name)
+
